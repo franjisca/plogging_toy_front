@@ -9,6 +9,7 @@ import SignUp from './component/SignUp';
 import MeetingList from './meeting/MeetingList';
 import UnitMeeting from './meeting/UnitMeeting';
 import CreateMeeting from './meeting/CreateMeeting';
+import PhotoList from './with_plogging/PhotoList';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/meetinglist" element={<MeetingList/>}/>
         <Route path="/unit-meeting-info" element={<UnitMeeting/>}/>
         <Route path="/createmeeting" element={<CreateMeeting/>}/>
+        <Route path="/photolist" element={<PhotoList/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

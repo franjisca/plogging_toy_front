@@ -38,6 +38,11 @@ form{
   transition-duration: 0.1s;
 }
 
+.move:hover {
+  transform: scale(1.03);
+  transition-duration: 0.1s;
+}
+
 .main_contents {
   height: 92vh;
   display: flex;
@@ -59,6 +64,7 @@ form{
   height: 70vh;
   border-radius: 10px 10px 10px 10px ;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow-y: auto;
 
 }
 
@@ -67,6 +73,7 @@ form{
   height: 80vh;
   border-radius: 10px 10px 10px 10px ;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow-y: auto;
 
 }
 
@@ -187,6 +194,22 @@ form{
 .full {
   background-color: #70d49b;
 }
+
+/* photo list */
+.photo {
+  width: 10vw;
+  height: 20vh;
+  padding: 1vw;
+  position: relative;
+  margin-bottom: 1px;
+}
+
+.photo-size{
+  width: 10vw;
+  height: 20vh;
+  position: relative;
+}
+
 
 /* footer */
 a {
@@ -494,6 +517,15 @@ a {
   align-items: center;
 }
 
+.dis-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.over {
+  overflow-y: auto;
+}
+
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root
 ,.MuiFormHelperText-root{
   font-family: 'Orbit' !important;
@@ -546,8 +578,13 @@ a {
   height: 20vh;
 }
 
+.h48vh {
+  height: 48vh;
+}
+
 .btn-area {
   width: inherit;
+  height: 10vh;
   display: flex;
   justify-content: end;
 }
