@@ -210,6 +210,41 @@ form{
   position: relative;
 }
 
+/* mypage */
+
+.lv-size {
+  width: 8vw;
+  height: 16vh;
+}
+
+
+.myprofile-area {
+  width: 64vw;
+  height: 20vh;
+  justify-content: space-between !important;
+}
+
+.my-info{
+ width: 10vw;
+ height: inherit;
+ display: flow-root;
+
+ justify-content: center;
+}
+
+.count-info{
+  width: 54vw;
+  height: inherit;
+}
+
+.mypage-area{
+  margin-top: 1vh;
+  width: 64vw;
+  height: 55vh;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 
 /* footer */
 a {
@@ -545,7 +580,7 @@ a {
   height: 80vh;
 }
 
-.fix-text-area {
+.fix-text-area, .myprofile-area{
   border-bottom: 1px solid gray;
 }
 

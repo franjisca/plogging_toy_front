@@ -10,6 +10,7 @@ import MeetingList from './meeting/MeetingList';
 import UnitMeeting from './meeting/UnitMeeting';
 import CreateMeeting from './meeting/CreateMeeting';
 import PhotoList from './with_plogging/PhotoList';
+import MyPage from './mypage/MyPage';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/unit-meeting-info" element={<UnitMeeting/>}/>
         <Route path="/createmeeting" element={<CreateMeeting/>}/>
         <Route path="/photolist" element={<PhotoList/>}/>
+        <Route path="/mypage" element={<MyPage/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>
