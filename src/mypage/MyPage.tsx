@@ -1,12 +1,20 @@
 import React from "react";
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import styled from "@emotion/styled";
+import CircleIcon from '@mui/icons-material/Circle';
 
-
+const PagingButton = styled(CircleIcon)({
+    cursor: 'pointer',
+    margin: '0.1vw',
+    color: '#E1ECC8',
+    '&:hover': {
+            color:'#A0C49D',
+    },
+});
 
 const CustomButton = styled(BorderColorIcon)({
     cursor:'pointer',
-    marginLeft: '0.5vw',
+    marginLeft: '0.1vw',
 });
 
 const MyPage = () => {
@@ -25,9 +33,25 @@ const MyPage = () => {
                 xx번 줍깅을 더 하면 종량제 봉투를 획득할 수 있습니다.<br/>
             </div>
         </div>
-        <div className="mypage-area">
-            <div className="sticky-paging">
-                
+        <div className="mypage-area basic_sort">
+            <div className="my-chat-list">
+                여기는 채팅리스트
+            </div>
+            <div className="photo-list dp-none">
+                여기는 인증샷리스트
+            </div>
+            <div className="map">
+                여기는 지도 사진
+            </div>
+            <div className="finish-list">
+                여기는 옛날에 참여했던 모임
+            </div>
+            
+            <div className="sticky-paging basic_sort">
+                <PagingButton fontSize="small" />
+                <PagingButton fontSize="small" />
+                <PagingButton fontSize="small" />
+                <PagingButton fontSize="small" />
             </div>
         </div>
     </div>

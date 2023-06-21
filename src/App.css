@@ -246,6 +246,21 @@ form{
 }
 
 
+.sticky-paging{
+  width: 12vw;
+  height: 5vh;
+  position: absolute;
+  top: 86vh
+}
+
+.my-chat-list {
+
+}
+
+.dp-none{
+  display: none;
+}
+
 /* footer */
 a {
   color: #fff;
