@@ -3,7 +3,9 @@ import React from "react";
 
 const BeforeList = (passed:any) => {
     
-    return <div className={passed ? "dp-none" : "before-list dis-grid over template3"}>
+    return passed.passed && 
+    <>
+    <div className="before-list dis-grid over template3">
                 <div className="unit-meeting">
                     <p className="unit-title font20 align-center">
                         광교산 플로깅 같이해요!
@@ -165,6 +167,7 @@ const BeforeList = (passed:any) => {
                     <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
                 </div>
             </div>
+            </>
 }
 
 export default BeforeList;

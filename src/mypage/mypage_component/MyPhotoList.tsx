@@ -50,9 +50,11 @@ const LikeCount  = styled(Typography)({
     fontFamily: 'Orbit',
 });
 
-const MyPhotoList = (passed:any) => {
+const MyPhotoList = (passed: any) => {
     
-    return <div className={passed ? "dp-none" : "my-photo-list dis-grid over"}>
+    return passed.passed && 
+    <>
+    <div className="my-photo-list dis-grid over">
                 <div className="photo basic_sort">
                 <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png"/>
                 <Customdelete />
@@ -67,6 +69,7 @@ const MyPhotoList = (passed:any) => {
                 </div>
                
     </div>
+    </>
 }
 
 export default MyPhotoList;

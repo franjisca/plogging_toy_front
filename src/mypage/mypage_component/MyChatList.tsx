@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 
 
@@ -33,88 +33,91 @@ const BootstrapButton = styled(Button)({
   });
 
 const MyChatList = (passed: any) => {
-    return <div className={passed === true ? "dp-none" : "my-chat-list dis-grid over template3"}>
-                  <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        <BootstrapButton>채팅방</BootstrapButton>                                           
-                        <BootstrapButton>모임 나가기</BootstrapButton>                                           
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-    </div>
+
+    return passed.passed &&  
+    <>
+    <div className="my-chat-list dis-grid over template3">
+    <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+  <div className="unit-meeting">
+      <p className="unit-title font20 align-center">
+          광교산 플로깅 같이해요!
+      </p>
+      <div className="people-list basic_sort">
+          <BootstrapButton>채팅방</BootstrapButton>                                           
+          <BootstrapButton>모임 나가기</BootstrapButton>                                           
+      </div>
+      <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
+  </div>
+</div></>;
 }
 
 export default MyChatList;

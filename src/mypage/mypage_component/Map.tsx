@@ -3,7 +3,9 @@ import { MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 
 const MyMap = (passed:any) => {
     
-    return <div className={passed ? "dp-none" : "my-map overflow-xy"}>
+    return passed.passed && 
+    <>
+    <div className="my-map overflow-xy">
 <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -16,6 +18,7 @@ const MyMap = (passed:any) => {
   </Marker>
 </MapContainer>
     </div>
+    </>
 }
 
 export default MyMap;
