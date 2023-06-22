@@ -44,16 +44,6 @@ const PhotoList = () => <div className="main_contents">
                 <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png"/>
                 <CustomIcon />
                 </div>
-
-
-
-
-
-
-   
- 
-            
-                          
         </div>
     </div>
 </div>

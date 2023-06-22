@@ -2,6 +2,14 @@ import React from "react";
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import styled from "@emotion/styled";
 import CircleIcon from '@mui/icons-material/Circle';
+import MyChatList from "./mypage_component/MyChatList";
+import MyPhotoList from "./mypage_component/MyPhotoList";
+import MyMap from "./mypage_component/Map";
+import BeforeList from "./mypage_component/BeforeList";
+
+const onClickChat = () =>{
+   // setDpNone(!dpNone);
+}
 
 const PagingButton = styled(CircleIcon)({
     cursor: 'pointer',
@@ -16,6 +24,7 @@ const CustomButton = styled(BorderColorIcon)({
     cursor:'pointer',
     marginLeft: '0.1vw',
 });
+
 
 const MyPage = () => {
     return <div className="main_contents">
@@ -34,21 +43,13 @@ const MyPage = () => {
             </div>
         </div>
         <div className="mypage-area basic_sort">
-            <div className="my-chat-list">
-                여기는 채팅리스트
-            </div>
-            <div className="photo-list dp-none">
-                여기는 인증샷리스트
-            </div>
-            <div className="map">
-                여기는 지도 사진
-            </div>
-            <div className="finish-list">
-                여기는 옛날에 참여했던 모임
-            </div>
+            <MyChatList passed={false}/>
+            <MyPhotoList passed={true}/>
+            <MyMap passed={true}/>
+            <BeforeList passed={true}/>
             
             <div className="sticky-paging basic_sort">
-                <PagingButton fontSize="small" />
+                <PagingButton fontSize="small" onClick={onClickChat}/>
                 <PagingButton fontSize="small" />
                 <PagingButton fontSize="small" />
                 <PagingButton fontSize="small" />

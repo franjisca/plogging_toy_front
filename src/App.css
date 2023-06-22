@@ -250,11 +250,22 @@ form{
   width: 12vw;
   height: 5vh;
   position: absolute;
-  top: 86vh
+  top: 87vh
 }
 
-.my-chat-list {
 
+.my-chat-list, 
+.my-photo-list,
+.my-map,
+.before-list
+{
+ width: 62vw;
+ height: 46vh;
+}
+
+.overflow-xy{
+  overflow: auto;
+  background-color: #ceefdc;
 }
 
 .dp-none{
@@ -573,7 +584,11 @@ a {
 }
 
 .over {
-  overflow-y: auto;
+  overflow-y: auto !important;
+}
+
+.template3 {
+  grid-template-columns: auto auto auto !important;
 }
 
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root
