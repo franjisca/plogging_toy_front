@@ -11,6 +11,7 @@ import UnitMeeting from './meeting/UnitMeeting';
 import CreateMeeting from './meeting/CreateMeeting';
 import PhotoList from './with_plogging/PhotoList';
 import MyPage from './mypage/MyPage';
+import Chatting from './mypage/mypage_component/Chatting';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/createmeeting" element={<CreateMeeting/>}/>
         <Route path="/photolist" element={<PhotoList/>}/>
         <Route path="/mypage" element={<MyPage/>} />
+        <Route path="chatting" element= {<Chatting/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
