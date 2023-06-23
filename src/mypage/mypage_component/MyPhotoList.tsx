@@ -1,13 +1,13 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react-hooks/rules-of-hooks */
 import styled from "@emotion/styled";
 import React from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Chip, TextField, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
-// const [dpNone, setDpNone] = useState<boolean>(false);
 const CustomIcon = styled(FavoriteIcon)({
     width: '2vw',
     height: '4vh',
@@ -51,12 +51,12 @@ const MyPhotoList = (passed: any) => {
     <>
     <div className="my-photo-list dis-grid over">
                 <div className="photo basic_sort">
-                <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png"/>
+                <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png" alt="upload-image"/>
                 <Customdelete />
                 <LikeCount>25<CustomIcon/></LikeCount>
                 </div>
                 <div className="photo basic_sort">
-                <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png"/>
+                <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png" alt= "upload-image"/>
                 <Customdelete />
                 </div>
                

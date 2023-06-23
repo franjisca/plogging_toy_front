@@ -570,6 +570,44 @@ a {
 }
 
 
+/* modal */
+
+.modal-back {
+  position: absolute;
+  width: inherit;
+  height: 100vh;
+  top:0;
+  left: 0;
+  right: 0;
+  background: rgba(93, 93, 93, 0.4);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  height: 75vh;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  overflow-y: auto;
+}
+
+.info-form, .close-area {
+  margin: 0 2vw 0 2vw;
+}
+
+.close-area {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 4vh;
+  
+}
+
+
 /* common */
 
 .basic_sort {
