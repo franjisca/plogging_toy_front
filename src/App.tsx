@@ -9,9 +9,9 @@ import SignUp from './component/SignUp';
 import MeetingList from './meeting/MeetingList';
 import UnitMeeting from './meeting/UnitMeeting';
 import CreateMeeting from './meeting/CreateMeeting';
-import PhotoList from './with_plogging/PhotoList';
 import MyPage from './mypage/MyPage';
 import Chatting from './mypage/mypage_component/Chatting';
+import PhotoList from './with_plogging/PhotoList';
 
 
 function App() {

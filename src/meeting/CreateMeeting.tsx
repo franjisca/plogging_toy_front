@@ -45,6 +45,7 @@ const CreateMeeting = () => {
             기간<CustomInput fullWidth={true} type="date"/> ~ 
             <CustomInput fullWidth={true} type="date"/>
             인원<CustomInput fullWidth={true} type="text" placeholder="숫자로 4까지 입력할 수 있어요"/>
+            위치<CustomInput fullWidth={true} type="text" placeholder="간략한 위치를 작성해주세요"/>
             상세 설명
             <CustomInput fullWidth={true} multiline rows={4} type="text" sx={{height: '15.5vh'}}placeholder="상세한 설명을 적어주세요"/>
 

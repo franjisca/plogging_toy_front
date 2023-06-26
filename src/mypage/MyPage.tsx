@@ -140,6 +140,7 @@ const MyPage = () => {
             </div>
             <form className="info-form">
             아이디<CustomInput fullWidth={true} type="text" value={"id"}disabled/>
+            이름<CustomInput fullWidth={true} type="text" value={"이름"}disabled/>
             닉네임<CustomInput fullWidth={true} type="text" placeholder="닉네임을 변경하기"/>
             비밀번호<CustomInput fullWidth={true} type="text" placeholder="특수문자 포함 8자 이상"/>
             비밀번호 확인<CustomInput fullWidth={true} type="text" placeholder="특수문자 포함 8자 이상" helperText={"사용할 수 없는 비밀번호입니다."}/>
@@ -152,7 +153,6 @@ const MyPage = () => {
         </div>
             </>
         }
-
 
     
     </div>
