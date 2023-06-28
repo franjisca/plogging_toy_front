@@ -18,8 +18,8 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <SideBar/>
       <Routes>
+      <SideBar/>
         <Route path="/" element={<MainPage/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
@@ -29,8 +29,8 @@ function App() {
         <Route path="/photolist" element={<PhotoList/>}/>
         <Route path="/mypage" element={<MyPage/>} />
         <Route path="chatting" element= {<Chatting/>}/>
-      </Routes>
       <Footer/>
+      </Routes>
       </BrowserRouter>
     </div>
   );

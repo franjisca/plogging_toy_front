@@ -38,7 +38,7 @@ const Chatting  = () => {
     <div className="add-meeting h5vh">
         <h4 className="color-darkgray">마이페이지로 돌아가기</h4><KeyboardReturnIcon sx={{width: '2vw', height: '4vh', cursor: 'pointer', color: green[500]}}/>
     </div>
-            <div className="info-unit-meeting h52vh">
+            <div className="info-unit-meeting h53vh">
               <div className="chatting-contents">
                     <div className="container">
                     <img src="/logo/logo_50.png" alt="Avatar" />
