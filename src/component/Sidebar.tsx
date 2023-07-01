@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import '../App.css';
 
 const SideBar = () =>{
+
+    const [id, setId] = useState<any>("");
+    
+    
     return <div className="navbar">
         
         <div className="inner_nav">

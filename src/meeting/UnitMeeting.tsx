@@ -8,7 +8,7 @@ const UnitMeeting = () => {
     <div className="meeting-area">
         <div className="fix-text-area">
         <h1 className="color-darkgray">광교산 플로깅 같이해요!</h1>
-        <h3 className="color_grey">기간: 2023년 06월 - 2023년 08월 </h3>
+        <h3 className="color_grey">기간: 2023년 06월 - 2023년 08월, 장소: 경기도 광교시 xx </h3>
         </div>
     <div className="add-meeting">
         <h4 className="color-darkgray">다른 모임 찾으러 가기</h4><KeyboardReturnIcon sx={{width: '2vw', height: '4vh', cursor: 'pointer', color: green[500]}}/>

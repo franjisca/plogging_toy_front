@@ -18,10 +18,10 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Routes>
       <SideBar/>
+      <Routes>
         <Route path="/" element={<MainPage/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/loginPage" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/meetinglist" element={<MeetingList/>}/>
         <Route path="/unit-meeting-info" element={<UnitMeeting/>}/>
@@ -29,8 +29,8 @@ function App() {
         <Route path="/photolist" element={<PhotoList/>}/>
         <Route path="/mypage" element={<MyPage/>} />
         <Route path="chatting" element= {<Chatting/>}/>
-      <Footer/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </div>
   );
