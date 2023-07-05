@@ -12,6 +12,7 @@ import CreateMeeting from './meeting/CreateMeeting';
 import MyPage from './mypage/MyPage';
 import Chatting from './mypage/mypage_component/Chatting';
 import PhotoList from './with_plogging/PhotoList';
+import NotFound from './component/NotFound';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <SideBar/>
       <Routes>
         <Route path="/" element={<MainPage/>}/>
-        <Route path="/loginPage" element={<Login/>}/>
+        <Route path="/login-page" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/meetinglist" element={<MeetingList/>}/>
         <Route path="/unit-meeting-info" element={<UnitMeeting/>}/>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/photolist" element={<PhotoList/>}/>
         <Route path="/mypage" element={<MyPage/>} />
         <Route path="chatting" element= {<Chatting/>}/>
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>

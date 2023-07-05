@@ -666,6 +666,11 @@ a {
   margin: 0 1vw 0 1vw;
 }
 
+.info-form{
+  height: inherit;
+  justify-content: center;
+}
+
 .close-area {
   display: flex;
   justify-content: end;
@@ -692,7 +697,7 @@ a {
   overflow-y: auto !important;
 }
 
-.template3 {
+.template3{
   grid-template-columns: auto auto auto !important;
 }
 
@@ -786,3 +791,10 @@ a {
   justify-content: end;
 }
 
+.highlight {
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+}
