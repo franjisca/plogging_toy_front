@@ -59,6 +59,7 @@ form{
   height: 50vh;
 }
 
+
 .signup_area {
   width: 40vw;
   height: 70vh;
@@ -662,6 +663,10 @@ a {
   overflow-y: auto;
 }
 
+.mypage-modal {
+  height: 80vh;
+}
+
 .info-form, .close-area {
   margin: 0 1vw 0 1vw;
 }
@@ -676,9 +681,21 @@ a {
   justify-content: end;
   align-items: center;
   height: 4vh;
-  
 }
 
+.complete {
+  width: inherit;
+  height: 8vh;
+}
+
+.completed {
+  width: 12vw;
+  height: 7vh;
+  background-color: #70d49b;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: white ;
+}
 
 /* common */
 
@@ -797,4 +814,12 @@ a {
 
 .center {
   text-align: center;
+}
+
+.ihr{
+  width: inherit;
+}
+
+.h10vh{
+  height:10vh;
 }

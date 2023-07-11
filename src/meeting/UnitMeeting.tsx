@@ -15,7 +15,11 @@ const UnitMeeting = () => {
     const [click, setClick] = useState<any>(false);
 
     useEffect(() => {
-        
+        info();
+    }, [pathvariable]);
+    
+    
+    const info = async () => {
         axios.get("http://localhost:8080/meeting/info/"+pathvariable)
         .then(payload => 
             {
@@ -23,11 +27,17 @@ const UnitMeeting = () => {
             }
             )
         .catch(e => toast.error("모임 정보가 존재하지 않습니다. 다시 시도해주세요"));
-    }, [pathvariable]);
+    }
 
 
-    const enjoy = () => {
-        axios.get("http://localhost:8080/meeting/enjoy/" + pathvariable + "/" + localStorage.getItem("userId"))
+    const enjoy = async () => {
+
+        if(!localStorage.getItem("userId")) {
+            toast.error('로그인 정보가 없습니다. 로그인 후 이용해주세요.');
+            navigate("/login-page");
+            return;
+        }
+        await axios.get("http://localhost:8080/meeting/enjoy/" + pathvariable + "/" + localStorage.getItem("userId"))
        .then(
         payload =>
         {
@@ -35,12 +45,14 @@ const UnitMeeting = () => {
                 setClick(!click);
                 toast.success("모임에 참여 되었습니다.");
             }
+
         }
        )
-       .catch(e => toast.error(e));
+       .catch(e => toast.error("이미 참여한 모임입니다."));
 
         }
 
+        
     return <div className="main_contents">
     <div className="meeting-area">
         <div className="fix-text-area">

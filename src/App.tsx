@@ -11,7 +11,7 @@ import UnitMeeting from './meeting/UnitMeeting';
 import CreateMeeting from './meeting/CreateMeeting';
 import MyPage from './mypage/MyPage';
 import Chatting from './mypage/mypage_component/Chatting';
-import PhotoList from './with_plogging/PhotoList';
+import PhotoList from './photolist/PhotoList';
 import NotFound from './component/NotFound';
 
 

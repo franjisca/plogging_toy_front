@@ -3,8 +3,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import userService from "../services/user-service";
-import { access } from "fs";
 
 const BootstrapButton = styled(Button)({
     backgroundColor: '#13aa52',
@@ -72,11 +70,15 @@ const Login = () => {
         console.log("실행되었다");
         window.location.href = 'http://localhost:8080/oauth2/authorization/google';
     }
+    
 
     return <div className="main_contents login">
        
-        <div className="login_area">
+        <div className="login_area root">
             <form action="/login" className="info-form">
+            <div className="ihr basic_sort h10vh">
+            <img src="/image/free-icon-input-4680657.png" alt="login_icon"/>
+            </div>
                 <CustomInput 
                 fullWidth={true} 
                 type="text" 
@@ -92,7 +94,7 @@ const Login = () => {
                 onChange={(e: any) => setPwd(e.target.value)}
                 helperText={"비밀번호를 입력하세요"}/>
                 <BootstrapButton className="button-37" onClick={login}>로그인</BootstrapButton>
-                <BootstrapButton onClick={googleLogin}>구글로 로그인 하기</BootstrapButton>
+                {/* <BootstrapButton onClick={googleLogin}>구글로 로그인 하기</BootstrapButton> */}
                 <span className="center">아직 회원이 아니신가요? 
                     <span className="highlight up" onClick={() => navigate("/signup")}>회원가입하기</span>
                     </span>

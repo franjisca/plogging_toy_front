@@ -5,8 +5,10 @@ const MyMap = (passed:any) => {
     
     return passed.passed && 
     <>
-    <div className="my-map overflow-xy">
-<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+    <div className="my-map overflow-xy basic_sort">
+
+      서비스 준비중입니다.
+{/*<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -16,7 +18,7 @@ const MyMap = (passed:any) => {
       A pretty CSS3 popup. <br /> Easily customizable.
     </Popup>
   </Marker>
-</MapContainer>
+</MapContainer>*/}
     </div>
     </>
 }

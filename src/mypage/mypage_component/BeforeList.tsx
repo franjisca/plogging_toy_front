@@ -1,171 +1,54 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const BeforeList = (passed:any) => {
+
+    const userId = localStorage.getItem("userId");
+    const [before, setBefore] = useState<any>([]);
+
+
+    useEffect(() => {
+        getMyBeforeList();
+    }, []);
+
+    const getMyBeforeList  = async () => {
+        await axios.get("/my-page/before-list/" + userId)
+        .then(payload => {
+            if(payload.data) {
+                console.log('before_list', payload.data);
+                setBefore(payload.data);
+            }
+        })
+        .catch(
+            e => toast.error("데이터를 불러올 수 없습니다. 다시 시도해주세요.")
+        );
+    }
     
     return passed.passed && 
     <>
     <div className="before-list dis-grid over template3">
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
-                        </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
 
-                <div className="unit-meeting">
+        {
+            before?.map(
+                (unit:any, idx: any) =>
+                <>
+                <div className="unit-meeting" key={idx}>
                     <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
+                        {unit.title}
                     </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
+                    <p className="wdt-inherit align-center">기간: {unit.period}</p>
+                    <div className="complete basic_sort">
+                        <div className="completed basic_sort">
+                                COMPLETE
                         </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
                     </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
                 </div>
-
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
-                        </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
-                        </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
-                        </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
-                        </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
-
-                <div className="unit-meeting">
-                    <p className="unit-title font20 align-center">
-                        광교산 플로깅 같이해요!
-                    </p>
-                    <div className="people-list basic_sort">
-                        {/* 반복문 자리 */}
-                        <div className="people basic_sort full">
-                            1
-                        </div>
-                        <div className="people basic_sort full">
-                            2
-                        </div>
-                        <div className="people basic_sort full">
-                            3
-                        </div>
-                        <div className="people basic_sort">
-                            4
-                        </div>
-                         {/* 반복문 자리 */}
-                    </div>
-                    <p className="wdt-inherit align-center">기간: 2023.06 - 2023.08</p>
-                </div>
+                </>
+            )
+        }
+               
             </div>
             </>
 }

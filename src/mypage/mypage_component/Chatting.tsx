@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import { green } from "@mui/material/colors";
 import Chip from '@mui/material/Chip';
 import FaceIcon from '@mui/icons-material/Face';
 import { TextField } from "@mui/material";
 import styled from "@emotion/styled";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const CustomChattingText = styled(TextField)({
@@ -24,6 +25,19 @@ const EnterButton = styled(TextField)({
 });
 
 const Chatting  = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathvariable = location.state.chatting.chatting_id;
+
+  useEffect(
+    () => {
+      console.log('pathvariable', pathvariable);
+    }, [pathvariable]);
+
+    const getChattingData = () => {
+
+    }
     return <div className="main_contents">
     <div className="meeting-area">
         <div className="fix-text-area">
@@ -36,7 +50,9 @@ const Chatting  = () => {
         </h3>
         </div>
     <div className="add-meeting h5vh">
-        <h4 className="color-darkgray">마이페이지로 돌아가기</h4><KeyboardReturnIcon sx={{width: '2vw', height: '4vh', cursor: 'pointer', color: green[500]}}/>
+        <h4 className="color-darkgray">마이페이지로 돌아가기</h4>
+        <KeyboardReturnIcon onClick = {() => navigate("/mypage")} 
+        sx={{width: '2vw', height: '4vh', cursor: 'pointer', color: green[500]}}/>
     </div>
             <div className="info-unit-meeting h53vh">
               <div className="chatting-contents">
