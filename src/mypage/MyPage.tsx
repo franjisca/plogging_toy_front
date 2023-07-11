@@ -20,16 +20,6 @@ const PagingButton = styled(CircleIcon)({
     },
 });
 
-const CustomButton = styled(BorderColorIcon)({
-    cursor:'pointer',
-    marginLeft: '0.1vw',
-});
-
-const CustomInput = styled(TextField)({
-    fontFamily: 'Orbit !important',
-    marginBottom: '3px',
-  });
-
   const BootstrapButton = styled(Button)({
     backgroundColor: '#13aa52',
     border: '1px solid #13aa52',
@@ -58,6 +48,16 @@ const CustomInput = styled(TextField)({
     },
   });
 
+const CustomButton = styled(BorderColorIcon)({
+    cursor:'pointer',
+    marginLeft: '0.1vw',
+});
+
+const CustomInput = styled(TextField)({
+    fontFamily: 'Orbit !important',
+    marginBottom: '3px',
+  });
+
 const MyPage = () => {
 
     const userId = localStorage.getItem("userId");
@@ -70,9 +70,11 @@ const MyPage = () => {
     const [isBeforeList, setIsBeforeList] = useState<any>(false);
     
     const [nickname, setNickname] = useState<any>('');
-    const [password, setPassword] = useState<any>('');
-    const [pwdCheck, setPwdCheck] = useState<any>('');
+    const [pwdChange, setPwdChange] = useState<any>('');
+    const[pwdHelp, setPwdHelp] = useState<any>('');
     const [email, setEmail] = useState<any>('');
+    const [emailChange, setEmailChange] = useState<any>('');
+    const [emailHelp, setEmailHelp] = useState<any>('');
     const [phone, setPhone] = useState<any>('');
     const [address, setAddresss] = useState<any>('');
 
@@ -92,7 +94,6 @@ const MyPage = () => {
                 if(payload.data) {
                     setUsername(payload.data.username);
                     setNickname(payload.data.nickname);
-                    setPassword(payload.data.password);
                     setEmail(payload.data.email);
                     setPhone(payload.data.phone);
                     setAddresss(payload.data.address);
@@ -135,18 +136,40 @@ const MyPage = () => {
     }
 
     const infochange = async () => {
-        if(password.length <  8 || !passwordReg.test(password)){
-            //setPwdHelp("비밀번호를 다시 입력해주세요.");
+
+        if(pwdChange && (pwdChange.length <  8 || !passwordReg.test(pwdChange))){
+            setPwdHelp("비밀번호 양식에 맞게 작성해주세요.");
             return;
         }
 
-        if(password !== pwdCheck) {
-            setPwdCheck("비밀번호가 일치하지 않습니다.");
+        if(emailChange && !emailReg.test(emailChange)) {
+            setEmailHelp("이메일을 다시 입력해주세요.");
+            return;
         }
 
-        if(!emailReg.test(email)) {
-            toast.error("이메일을 다시 입력해주세요.");
-        }
+        await axios.patch('/my-page/info-change/' + userId, {
+            nickname,
+            pwdChange,
+            email,
+            phone,
+            address,
+
+        })
+        .then(
+            payload => {
+                setModal(!modal);
+                toast.success("정보가 수정 되었습니다.");
+                setPwdHelp('');
+            }
+        )
+        .catch(e => console.log(e));
+
+    }
+
+    const closeClick = () => {
+        setModal(!modal); 
+        setPwdHelp('');
+        setEmailHelp('');
     }
     
     return <div className="main_contents">
@@ -186,31 +209,37 @@ const MyPage = () => {
         {
             modal && 
             <>
-                    <div className="modal-back">
+            <div className="modal-back">
             <div className="modal mypage-modal">
             <div className="close-area">
-                <CloseIcon sx={{cursor: 'pointer'}}  onClick={() =>setModal(!modal)} />
+                <CloseIcon sx={{cursor: 'pointer'}}  onClick={closeClick} />
             </div>
-            <form className="info-form">
-            아이디<CustomInput fullWidth={true} type="text" value={userId} disabled/>
-            이름<CustomInput fullWidth={true} type="text" value={username} disabled/>
+            <form className="info-form h65vh">
+            아이디
+            <CustomInput fullWidth={true} type="text" value={userId} disabled/>
             
-            닉네임<CustomInput fullWidth={true} type="text" placeholder="닉네임 변경하기"
-            value={nickname } onChange={e => setNickname(e.target.value)}/>
-            비밀번호<CustomInput fullWidth={true} type="password" placeholder="특수문자 포함 8자 이상"
-            value={password} onChange={e => setPassword(e.target.value)}/>
-            비밀번호 확인<CustomInput fullWidth={true} type="password" placeholder="특수문자 포함 8자 이상" helperText={"사용할 수 없는 비밀번호입니다."}
-            value={pwdCheck} onChange={e => setPwdCheck(e.target.value)}/>
-            이메일<CustomInput fullWidth={true} type="email" placeholder="이메일"
-            value={email} onChange={e => setEmail(e.target.value)}
-            />
+            이름
+            <CustomInput fullWidth={true} type="text" value={username} disabled/>
+            
+            닉네임
+            <CustomInput fullWidth={true} type="text" placeholder="닉네임 변경하기"
+            value={nickname} onChange={e => setNickname(e.target.value)}/>
+            
+            
+            비밀번호 변경하기<CustomInput fullWidth={true} type="password" placeholder="특수문자 포함 8자 이상" helperText={pwdHelp ? pwdHelp : false}
+            value={pwdChange} onChange={e => setPwdChange(e.target.value)}/>
+            
+            이메일<CustomInput fullWidth={true} type="email" placeholder="이메일" helperText={emailHelp ? emailHelp : false}
+            value={emailChange ? emailChange : email} onChange={e => setEmailChange(e.target.value)}/>
+            
             전화번호<CustomInput fullWidth={true} type="text" placeholder="'-' 제외 숫자만 입력"
-             value={phone} onChange={e => setPhone(e.target.value)}
-            />
+             value={phone} onChange={e => setPhone(e.target.value)}/>
+
             주소<CustomInput fullWidth={true} type="text" placeholder="주소를 입력하세요"
-             value={address} onChange={e => setAddresss(e.target.value)}
-            />
-            <BootstrapButton onClick={infochange}>정보수정</BootstrapButton>
+             value={address} onChange={e => setAddresss(e.target.value)}/>
+            <BootstrapButton onClick={infochange}>
+                정보수정
+            </BootstrapButton>
         </form>
             </div>
         </div>

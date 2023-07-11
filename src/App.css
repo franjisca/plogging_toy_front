@@ -664,7 +664,7 @@ a {
 }
 
 .mypage-modal {
-  height: 80vh;
+  height: 72vh;
 }
 
 .info-form, .close-area {
@@ -691,6 +691,7 @@ a {
 .completed {
   width: 12vw;
   height: 7vh;
+  font-size: 18px;
   background-color: #70d49b;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -799,6 +800,10 @@ a {
 
 .h53vh {
   height: 53vh;
+}
+
+.h65vh {
+  height: 65vh;
 }
 
 .btn-area {

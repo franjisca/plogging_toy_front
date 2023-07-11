@@ -45,7 +45,6 @@ const SignUp = () => {
     const [email, setEmail] = useState<any>('');
     const [phone, setPhone] = useState<any>('');
     const [address, setAddress] = useState<any>('');
-    const [idHelp, setIdHelp] = useState<any>('');
     const [pwdHelp, setPwdHelp] = useState<any>('');
 
     
@@ -60,6 +59,7 @@ const SignUp = () => {
             toast.error("이메일과 전화번호를 제외 모두 필수 입력값입니다.");
             return;
         }
+
         if(password.length <  8 || !passwordReg.test(password)){
             setPwdHelp("비밀번호를 다시 입력해주세요.");
             return;
@@ -87,7 +87,6 @@ return <div className="main_contents">
             fullWidth={true} 
             type="text" 
             placeholder="아이디를입력하세요" 
-            helperText={idHelp ? idHelp : false}
             value={userId}
             onChange={(e: any) => setUserId(e.target.value)}
             />
