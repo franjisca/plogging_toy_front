@@ -50,8 +50,6 @@ const PhotoList = () => {
         axios.get("http://localhost:8080/photo/list")
         .then( payload => {
             if(payload.data){ 
-                console.log(payload.data);
-
                 setData(payload.data);
             }
         })
@@ -80,7 +78,6 @@ const PhotoList = () => {
         
         if(e.target.files){
           const uploadFile = e.target.files[0]
-          console.log(uploadFile)
           setUploadFile(uploadFile);
         }
       }
@@ -112,7 +109,6 @@ const PhotoList = () => {
             )
         .catch( e => {
             toast.error("업로드 할 수 없습니다. 다시 시도해주세요");
-            console.log("사진 업로드 에러: " + e);
     });
     }
 

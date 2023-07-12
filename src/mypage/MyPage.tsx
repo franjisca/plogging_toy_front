@@ -162,7 +162,7 @@ const MyPage = () => {
                 setPwdHelp('');
             }
         )
-        .catch(e => console.log(e));
+        .catch(e => toast.error('요청을 수행할 수 없습니다. 다시 시도해주세요.ㄴ'));
 
     }
 

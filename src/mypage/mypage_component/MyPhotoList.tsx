@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable react-hooks/rules-of-hooks */
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Typography } from "@mui/material";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -46,22 +48,58 @@ const LikeCount  = styled(Typography)({
 });
 
 const MyPhotoList = (passed: any) => {
-    
+
+    const userId = localStorage.getItem("userId");
+    const [photos, setPhotos] = useState<any>([]);
+
+    useEffect( () => {
+        getMyPhotoList();
+    }, [photos]);
+ 
+    const getMyPhotoList= async() => {
+        
+        await axios.get('/my-page/my-photos/' + userId)
+        .then(payload => {
+            if(payload.data) {
+                setPhotos(payload.data)
+            }
+        })
+        .catch(e => toast.error("데이터를 불러올 수 없습니다."))
+    }
+
+    const deletePhoto = async(id: any) => {
+        await axios.delete('/photo/delete/' + id + '?userId=' + userId)
+        .then(
+            payload => {
+                
+                if(payload.status === 200) {
+                    toast.success("업로드한 사진이 삭제 되었습니다");
+                    getMyPhotoList();
+                }
+            }
+        )
+        .catch(e => toast.error("요청을 수행할 수 없습니다. 다시 시도해주세요."));
+    }
     return passed.passed && 
     <>
-    <div className="my-photo-list dis-grid over">
-                <div className="photo basic_sort">
-                <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png" alt="upload-image"/>
-                <Customdelete />
-                <LikeCount>25<CustomIcon/></LikeCount>
-                </div>
-                <div className="photo basic_sort">
-                <img className="photo-size" src="/image/free-icon-mother-earth-day-4287570.png" alt= "upload-image"/>
-                <Customdelete />
-                </div>
-               
-    </div>
+            <div className="my-photo-list dis-grid over">
+            
+            {
+                photos?.map(
+                    (unit: any, idx: any) =>
+                    <div className="photo basic_sort" key={idx}>
+                    <img className="photo-size" src={'/upload_image/' + unit.storedFileName} alt="upload-image"/>
+                    <Customdelete onClick={() => deletePhoto(unit.id)}/>
+                    <LikeCount>{unit.likes}<CustomIcon/></LikeCount>
+                    </div>
+
+                )
+            }
+           
+</div>
     </>
+    
+
 }
 
 export default MyPhotoList;

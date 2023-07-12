@@ -6,15 +6,16 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const SideBar = () =>{
+    const userId = localStorage.getItem("userId");
     const [id, setId] = useState<any>('');
     const navigate = useNavigate();
 
     useEffect(() => {
         if(localStorage.getItem("userId")) setId(localStorage.getItem("userId"));
-    }, [localStorage.getItem("userId")]);
+    }, [userId]);
 
-    const logout = () => {
-        // await axios.get("/logout");
+    const logout = async () => {
+        // await axios.get('logout');
         localStorage.removeItem("userId");
         setId('');
         toast.success("로그아웃 되었습니다.");

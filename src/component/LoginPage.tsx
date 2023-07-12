@@ -54,7 +54,6 @@ const Login = () => {
                 localStorage.setItem("userId", payload.data.userId); 
                 axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 
-                console.log(payload.headers);
                 navigate("/")
             }
         ).catch(
@@ -67,7 +66,6 @@ const Login = () => {
 
 
     const googleLogin = () => {
-        console.log("실행되었다");
         window.location.href = 'http://localhost:8080/oauth2/authorization/google';
     }
     

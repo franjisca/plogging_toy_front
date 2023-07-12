@@ -32,7 +32,6 @@ const Chatting  = () => {
 
   useEffect(
     () => {
-      console.log('pathvariable', pathvariable);
     }, [pathvariable]);
 
     const getChattingData = () => {

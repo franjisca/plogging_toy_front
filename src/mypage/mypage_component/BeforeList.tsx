@@ -17,7 +17,6 @@ const BeforeList = (passed:any) => {
         await axios.get("/my-page/before-list/" + userId)
         .then(payload => {
             if(payload.data) {
-                console.log('before_list', payload.data);
                 setBefore(payload.data);
             }
         })
@@ -34,7 +33,7 @@ const BeforeList = (passed:any) => {
             before?.map(
                 (unit:any, idx: any) =>
                 <>
-                <div className="unit-meeting" key={idx}>
+                <div className="unit-meeting" key={idx+idx}>
                     <p className="unit-title font20 align-center">
                         {unit.title}
                     </p>

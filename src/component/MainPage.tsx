@@ -10,7 +10,6 @@ const MainPage = () => {
         axios.get("/people-count")
         .then(payload => {
             setData(payload.data.peopleCount)
-            console.log(payload)
         }
         )
         .catch(e => toast.error("서버와 통신이 원활하지 않습니다."));

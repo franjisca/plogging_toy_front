@@ -50,7 +50,6 @@ const MyChatList = (passed: any) => {
         .then(
             payload => {
                 setChatList(payload.data);
-                console.log(payload.data);
             }
         )
         .catch(e => toast.error("데이터를 가지고 올 수 없습니다. 다시 시도해주세요."));
@@ -59,7 +58,6 @@ const MyChatList = (passed: any) => {
     const navigate = useNavigate();
 
     const goToChatting = async (chatting: any) => {
-        console.log('unit => ', chatting);
         navigate("/chatting", {state: {chatting}});
     }
 
