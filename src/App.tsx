@@ -21,16 +21,16 @@ function App() {
       <BrowserRouter>
       <SideBar/>
       <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route path="/login-page" element={<Login/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/meetinglist" element={<MeetingList/>}/>
-        <Route path="/unit-meeting-info" element={<UnitMeeting/>}/>
-        <Route path="/createmeeting" element={<CreateMeeting/>}/>
-        <Route path="/photolist" element={<PhotoList/>}/>
-        <Route path="/mypage" element={<MyPage/>} />
-        <Route path="chatting" element= {<Chatting/>}/>
-        <Route path="/*" element={<NotFound/>} />
+        <Route key={Math.random()} path="/" element={<MainPage/>}/>
+        <Route key={Math.random()} path="/login-page" element={<Login/>}/>
+        <Route key={Math.random()} path="/signup" element={<SignUp/>}/>
+        <Route key={Math.random()} path="/meetinglist" element={<MeetingList/>}/>
+        <Route key={Math.random()} path="/unit-meeting-info" element={<UnitMeeting/>}/>
+        <Route key={Math.random()} path="/createmeeting" element={<CreateMeeting/>}/>
+        <Route key={Math.random()} path="/photolist" element={<PhotoList/>}/>
+        <Route key={Math.random()} path="/mypage" element={<MyPage/>} />
+        <Route key={Math.random()} path="chatting" element= {<Chatting/>}/>
+        <Route key={Math.random()} path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>

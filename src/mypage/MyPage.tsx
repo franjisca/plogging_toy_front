@@ -62,6 +62,7 @@ const MyPage = () => {
 
     const userId = localStorage.getItem("userId");
     const [username, setUsername] = useState<any>('')
+    const [ploggingcount, setPloggingCount] = useState<any>('');
     
     const [modal, setModal] = useState<any>(false);
     const [isChatList, setIsChatList] = useState<any>(true);
@@ -84,6 +85,7 @@ const MyPage = () => {
     
     useEffect(() => {
         getMyData();
+        getMyPloggingCount();
     }, []);
     
     const getMyData = async () => {
@@ -101,6 +103,18 @@ const MyPage = () => {
             }
         )
         .catch(e => toast.error("정보를 불러올 수 없습니다. 다시 시도해주세요."));
+    }
+
+    const getMyPloggingCount = async () => {
+        await axios.get('/my-page/count/' + userId)
+        .then(
+            payload => {
+                if(payload.data){
+                    setPloggingCount(payload.data);
+                }
+            }
+        )
+        .catch();
     }
 
     const onClickButton = (push: number) => {
@@ -179,15 +193,15 @@ const MyPage = () => {
                 <img className="lv-size" alt="my-level" src="/image/free-icon-seeds-3598154.png"/>
                 </div>
                 <div className="basic_sort">
-                <span>Lv.01 {userId} </span>
+                <span>Lv.01 {nickname ? nickname : userId} </span>
                 <CustomButton fontSize="small" sx={{cursor:'pointer'}}
                     onClick={() => setModal(!modal)}
                 />
                 </div>
             </div>
             <div className="count-info basic_sort main-text">
-                이름님은 이번 달에 xx번 줍깅을 했어요<br/>
-                xx번 줍깅을 더 하면 종량제 봉투를 획득할 수 있습니다.<br/>
+                이름님은 지금까지 {ploggingcount}번 줍깅을 했어요<br/>
+                앞으로도 꾸준한 플로깅을 응원할게요<br/>
             </div>
         </div>
         <div className="mypage-area basic_sort">
