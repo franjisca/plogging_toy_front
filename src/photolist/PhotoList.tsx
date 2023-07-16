@@ -1,15 +1,13 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {useEffect,useState } from "react";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { green, red } from "@mui/material/colors";
+import { green} from "@mui/material/colors";
 import styled from "@emotion/styled";
 import CloseIcon from '@mui/icons-material/Close';
 import { TextField } from "@mui/material";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { METHODS } from "http";
-import { upload } from "@testing-library/user-event/dist/upload";
 
 const CustomIcon = styled(FavoriteIcon)({
     position: 'absolute',
@@ -27,11 +25,11 @@ const CustomIcon = styled(FavoriteIcon)({
 
 
 const UploadInput = styled(TextField)({
-
     '& .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root' : {
         fontFamily: 'Orbit !important',
       }
 });
+
 
 const PhotoList = () => {
 
@@ -39,7 +37,7 @@ const PhotoList = () => {
     const [data, setData] = useState<any>([]);
     const [uploadFile, setUploadFile] = useState<any>('');
     const [userId, setUserId] = useState<any>('');
-
+    const [cautionText, setCautionText] = useState<any>('');
 
     useEffect(() =>{
         setUserId(localStorage.getItem("userId"));
@@ -47,7 +45,7 @@ const PhotoList = () => {
 
 
     const getData = async () => {
-        axios.get("http://localhost:8080/photo/list")
+        axios.get('/photo/list')
         .then( payload => {
             if(payload.data){ 
                 setData(payload.data);
@@ -62,7 +60,7 @@ const PhotoList = () => {
 
     const likePhoto = async (req: any) => {
         
-        await axios.get("http://localhost:8080/photo/like/"  + req)
+        await axios.get("/photo/like/"  + req)
         .then(
             payload => {
                 if(payload.status === 200) {
@@ -73,6 +71,7 @@ const PhotoList = () => {
         .catch(e => toast.error("응원을 전달할 수 없습니다. 다시 시도해주세요"));
         
     }
+
     const onChangeImg = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         
@@ -84,7 +83,16 @@ const PhotoList = () => {
 
 
     const uploadImage = async () => {
-        if(!uploadFile) toast.error("선택된 파일이 없습니다. 이미지를 업로드해주세요");
+        if(!uploadFile) {
+            setCautionText("선택된 파일이 없습니다. 이미지를 업로드해주세요");
+            return;
+        }
+        
+        if(uploadFile.type !== "/image/png" 
+        || uploadFile.type !== "/image/jpg") {
+            setCautionText("이미지 파일(png, jpg)만 업로드 할 수 있습니다");
+            return;
+        }
 
         const formData = new FormData();
 
@@ -135,7 +143,6 @@ const PhotoList = () => {
                 </div>
                     )
                 )}
-            
         </div>
     </div>
     {
@@ -147,7 +154,14 @@ const PhotoList = () => {
             <CloseIcon sx={{cursor: 'pointer'}}  onClick={() => setOpen(false)} />
         </div>
         <div className="upload-area basic_sort">
-            <UploadInput type='file' name="upload_image" onChange={onChangeImg}/>
+            <div>
+            <UploadInput type='file' name="upload_image" onChange={onChangeImg}
+            />
+                {
+                    <p className="caution-text">{cautionText}</p>
+                }
+            </div>
+            
         </div>
         <div className="close-area">
             <AddCircleIcon

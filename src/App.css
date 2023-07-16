@@ -700,6 +700,18 @@ a {
 
 /* common */
 
+.caution-text{
+  color: rgb(0, 114, 4);
+  text-align: center;
+}
+
+.flow-r{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flow-root;
+}
+
 .basic_sort {
   display: flex;
   justify-content: center;
