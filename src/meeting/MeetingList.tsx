@@ -13,7 +13,7 @@ const MeetingList = () => {
 
     useEffect((
     ) => {
-        axios.get("http://localhost:8080/meeting/list")
+        axios.get("/meeting/list")
         .then(
             payload => {
                 setData(payload.data);

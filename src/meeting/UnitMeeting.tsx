@@ -20,7 +20,7 @@ const UnitMeeting = () => {
     
     
     const info = async () => {
-        axios.get("http://localhost:8080/meeting/info/"+pathvariable)
+        axios.get("/meeting/info/"+pathvariable)
         .then(payload => 
             {
                 setData(payload.data); 
@@ -37,7 +37,7 @@ const UnitMeeting = () => {
             navigate("/login-page");
             return;
         }
-        await axios.get("http://localhost:8080/meeting/enjoy/" + pathvariable + "/" + localStorage.getItem("userId"))
+        await axios.get("/meeting/enjoy/" + pathvariable + "/" + localStorage.getItem("userId"))
        .then(
         payload =>
         {

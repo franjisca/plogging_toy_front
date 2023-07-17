@@ -70,7 +70,7 @@ const CreateMeeting = () => {
             return;
         }
 
-        axios.post("http://localhost:8080/meeting/create", 
+        axios.post("/meeting/create", 
         {userId: localStorage.getItem("userId"), 
         title, 
         period: period1 + " ~ " + period2,
