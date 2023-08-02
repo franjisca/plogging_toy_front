@@ -36,6 +36,8 @@ const BootstrapButton = styled(Button)({
   });
 
 const MyChatList = (passed: any) => {
+
+    const accessToken = localStorage.getItem("accessToken");
     const userId = localStorage.getItem("userId");
     const [chatList, setChatList] = useState<any>([]);
 
@@ -46,7 +48,7 @@ const MyChatList = (passed: any) => {
 
     const getData = async() => {
 
-        await axios.get("/my-page/meeting-list/" + userId)
+        await axios.get("/my-page/meeting-list/" + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
                 setChatList(payload.data);
@@ -63,7 +65,7 @@ const MyChatList = (passed: any) => {
 
     const outMeeting = async (meeting_id: any) => {
         
-        await axios.delete("/my-page/out/" + meeting_id + "/" + userId)
+        await axios.delete("/my-page/out/" + meeting_id + "/" + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => 
             {

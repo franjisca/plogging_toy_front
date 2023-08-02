@@ -49,6 +49,7 @@ const LikeCount  = styled(Typography)({
 
 const MyPhotoList = (passed: any) => {
 
+    const accessToken = localStorage.getItem("accessToken");
     const userId = localStorage.getItem("userId");
     const [photos, setPhotos] = useState<any>([]);
 
@@ -58,7 +59,7 @@ const MyPhotoList = (passed: any) => {
  
     const getMyPhotoList= async() => {
         
-        await axios.get('/my-page/my-photos/' + userId)
+        await axios.get('/my-page/my-photos/' + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(payload => {
             if(payload.data) {
                 setPhotos(payload.data)
@@ -68,7 +69,7 @@ const MyPhotoList = (passed: any) => {
     }
 
     const deletePhoto = async(id: any) => {
-        await axios.delete('/photo/delete/' + id + '?userId=' + userId)
+        await axios.delete('/photo/delete/' + id + '?userId=' + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
                 

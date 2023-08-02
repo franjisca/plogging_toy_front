@@ -17,6 +17,7 @@ const SideBar = () =>{
     const logout = async () => {
         // await axios.get('logout');
         localStorage.removeItem("userId");
+        localStorage.removeItem("accessToken");
         setId('');
         toast.success("로그아웃 되었습니다.");
         navigate("/");

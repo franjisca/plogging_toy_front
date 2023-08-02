@@ -28,6 +28,7 @@ const EnterButton = styled(TextField)({
 
 const Chatting  = () => {
   
+  const accessToken = localStorage.getItem("accessToken");
   const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
   const location = useLocation();
@@ -49,22 +50,22 @@ const Chatting  = () => {
 
     const findUserId = async () =>  {
       if(chatData.userNo !== null) {
-        axios.get('/find-id/' + chatData.userNo).then(payload => {
+        axios.get('/find-id/' + chatData.userNo, {headers : {Authorization: `Bearer ${accessToken}`}}).then(payload => {
           setUser1(payload.data.userId);
         }).catch(e => toast.error("채팅방 유저 정보를 불러올 수 없습니다."));
       }
           if(chatData.two !== null) {
-        axios.get('/find-id/' + chatData.two).then(payload => {
+        axios.get('/find-id/' + chatData.two, {headers : {Authorization: `Bearer ${accessToken}`}}).then(payload => {
           setUser2(payload.data.userId);
         }).catch(e => toast.error("채팅방 유저 정보를 불러올 수 없습니다."));
       }
           if(chatData.three !== null) {
-        axios.get('/find-id/' + chatData.three).then(payload => {
+        axios.get('/find-id/' + chatData.three, {headers : {Authorization: `Bearer ${accessToken}`}}).then(payload => {
           setUser3(payload.data.userId);
         }).catch(e => toast.error("채팅방 유저 정보를 불러올 수 없습니다."));
       }
           if(chatData.four !== null) {
-        axios.get('/find-id/' + chatData.four).then(payload => {
+        axios.get('/find-id/' + chatData.four, {headers : {Authorization: `Bearer ${accessToken}`}}).then(payload => {
           setUser4(payload.data.userId);
         }).catch(e => toast.error("채팅방 유저 정보를 불러올 수 없습니다."));
       }
@@ -73,7 +74,7 @@ const Chatting  = () => {
 
     const getChattingData = async () => {
       await axios
-            .get('/chatting/chatting-data/' + pathvariable)
+            .get('/chatting/chatting-data/' + pathvariable, {headers : {Authorization: `Bearer ${accessToken}`}})
             .then(payload => {
               if(payload.data) {setTextData(payload.data);}
             })
@@ -90,7 +91,7 @@ const Chatting  = () => {
       }
 
       axios
-      .post('/chatting/send/' + pathvariable + '/' + userId, {messages: chattingText})
+      .post('/chatting/send/' + pathvariable + '/' + userId, {messages: chattingText}, {headers : {Authorization: `Bearer ${accessToken}`}})
       .then(payload => 
         {
           if(payload.status === 200) {

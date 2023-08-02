@@ -33,6 +33,7 @@ const UploadInput = styled(TextField)({
 
 const PhotoList = () => {
 
+    const accessToken = localStorage.getItem("accessToken");
     const [open, setOpen] = useState<any>(false);
     const [data, setData] = useState<any>([]);
     const [uploadFile, setUploadFile] = useState<any>('');
@@ -105,6 +106,7 @@ const PhotoList = () => {
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
+                Authorization: `Bearer ${accessToken}`
             }
         })
         .then(payload => {

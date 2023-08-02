@@ -60,6 +60,7 @@ const CustomInput = styled(TextField)({
 
 const MyPage = () => {
 
+    const accessToken = localStorage.getItem("accessToken");
     const userId = localStorage.getItem("userId");
     const [username, setUsername] = useState<any>('')
     const [ploggingcount, setPloggingCount] = useState<any>('');
@@ -89,7 +90,7 @@ const MyPage = () => {
     }, []);
     
     const getMyData = async () => {
-        await axios.get("/my-page/my-info/" + userId)
+        await axios.get("/my-page/my-info/" + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
 
@@ -106,7 +107,7 @@ const MyPage = () => {
     }
 
     const getMyPloggingCount = async () => {
-        await axios.get('/my-page/count/' + userId)
+        await axios.get('/my-page/count/' + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
                 if(payload.data){
@@ -168,7 +169,7 @@ const MyPage = () => {
             phone,
             address,
 
-        })
+        }, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
                 setModal(!modal);

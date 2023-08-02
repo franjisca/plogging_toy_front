@@ -50,9 +50,8 @@ const Login = () => {
         }
         axios.post("/login", {userId: id, password: pwd},).then(
             payload => {
-                const {accessToken} = payload.data;
-                localStorage.setItem("userId", payload.data.userId); 
-                axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+                localStorage.setItem("userId", id); 
+                localStorage.setItem("accessToken", payload.data.token);
 
                 navigate("/")
             }

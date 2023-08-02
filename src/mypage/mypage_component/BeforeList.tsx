@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 const BeforeList = (passed:any) => {
 
+    const accessToken = localStorage.getItem("accessToken");
     const userId = localStorage.getItem("userId");
     const [before, setBefore] = useState<any>([]);
 
@@ -14,7 +15,8 @@ const BeforeList = (passed:any) => {
     }, []);
 
     const getMyBeforeList  = async () => {
-        await axios.get("/my-page/before-list/" + userId)
+        await axios
+        .get("/my-page/before-list/" + userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(payload => {
             if(payload.data) {
                 setBefore(payload.data);

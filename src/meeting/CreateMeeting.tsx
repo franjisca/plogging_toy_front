@@ -40,6 +40,8 @@ const CustomInput = styled(TextField)({
   });
 
 const CreateMeeting = () => {
+    
+    const accessToken = localStorage.getItem("accessToken");
 
     const [title, setTitle] = useState<any>('');
     const [period1, setPeriod1] = useState<any>('');
@@ -78,6 +80,8 @@ const CreateMeeting = () => {
         maxCount,
         contents,
     
+        }, {
+            headers: {Authorization: `Bearer ${accessToken}`}
         })
         .then(
             payload => {

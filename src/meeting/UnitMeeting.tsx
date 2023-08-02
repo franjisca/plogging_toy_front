@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
 const UnitMeeting = () => {
 
+    const accessToken = localStorage.getItem("accessToken");
     const [data, setData] = useState<any>({});
     const location = useLocation();
     const navigate = useNavigate();
@@ -32,12 +33,17 @@ const UnitMeeting = () => {
 
     const enjoy = async () => {
 
-        if(!localStorage.getItem("userId")) {
+        if(!localStorage.getItem("userId") || !accessToken) {
             toast.error('로그인 정보가 없습니다. 로그인 후 이용해주세요.');
             navigate("/login-page");
             return;
         }
-        await axios.get("/meeting/enjoy/" + pathvariable + "/" + localStorage.getItem("userId"))
+        await axios
+        .get("/meeting/enjoy/" + pathvariable + "/" + localStorage.getItem("userId")
+        , {
+            headers: {Authorization: `Bearer ${accessToken}`}
+        }
+        )
        .then(
         payload =>
         {
