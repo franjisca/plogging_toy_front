@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const SideBar = () =>{
+
+    const accessToken = localStorage.getItem("accessToken");
     const userId = localStorage.getItem("userId");
     const [id, setId] = useState<any>('');
     const navigate = useNavigate();
@@ -15,13 +17,21 @@ const SideBar = () =>{
     }, [userId]);
 
     const logout = async () => {
-        // await axios.get('logout');
-        localStorage.removeItem("userId");
-        localStorage.removeItem("accessToken");
-        setId('');
-        toast.success("로그아웃 되었습니다.");
-        navigate("/");
-    }
+       /* await axios.get('/logout', {headers : {Authorization: `Bearer ${accessToken}`}})
+        .then(
+            payload => {
+                if(payload.status === 200) {
+                }
+                toast.error("로그아웃 할 수 없습니다. 다시 시도해주세요.");
+                return;
+            }
+            ).catch(); */
+            localStorage.removeItem("userId");
+            localStorage.removeItem("accessToken");
+            setId('');
+            toast.success("로그아웃 되었습니다.");
+            navigate("/");
+        }
 
     const myPageClick = () => {
         if(!localStorage.getItem("userId")) {
