@@ -16,6 +16,4 @@ https://spiky-shoulder-7b9.notion.site/ToyProject-plogging-79a4abfa703344dd95726
 <br/>
 
 
-<img src="https://file.notion.so/f/s/b5289c33-104f-4ae9-8f3b-d91aea566d4f/Untitled.png?id=1584d0e9-9846-44ce-a37f-f5a6aadb96a8&table=block&spaceId=85a23896-6a67-448a-9b36-493108acf74e&expirationTimestamp=1694966400000&signature=5ixYewnAFVK8n65CwCoakKs7L-9IvcFGHWdDxz9rRFA&downloadName=Untitled.png"/>
-
 </div>
