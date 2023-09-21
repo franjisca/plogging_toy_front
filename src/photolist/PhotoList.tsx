@@ -93,6 +93,7 @@ const PhotoList = () => {
         if(
             uploadFile.type === "image/png"
             || uploadFile.type === "image/jpg"
+            || uploadFile.type === "image/jpeg"
         ) {
 
             const formData = new FormData();
