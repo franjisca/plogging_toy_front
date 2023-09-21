@@ -89,37 +89,48 @@ const PhotoList = () => {
             return;
         }
         
-        if(uploadFile.type !== "/image/png" 
-        || uploadFile.type !== "/image/jpg") {
-            setCautionText("이미지 파일(png, jpg)만 업로드 할 수 있습니다");
-            return;
-        }
 
-        const formData = new FormData();
+        if(
+            uploadFile.type === "image/png"
+            || uploadFile.type === "image/jpg"
+        ) {
 
-        formData.append("file", uploadFile);
+            const formData = new FormData();
 
-
-        await axios({
-            method: 'post',
-            url: '/photo/upload/' + userId,
-            data: formData,
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                Authorization: `Bearer ${accessToken}`
+            formData.append("file", uploadFile);
+    
+    
+            await axios({
+                method: 'post',
+                url: '/photo/upload/' + userId,
+                data: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${accessToken}`
+                }
+            })
+            .then(payload => {
+    
+                if(payload.status === 200) {
+                    toast.success("사진이 업로드 되었습니다.");
+                    setOpen(!open);
+                }
             }
-        })
-        .then(payload => {
+                )
+            .catch( e => {
+                toast.error("업로드 할 수 없습니다. 다시 시도해주세요");
+        });
 
-            if(payload.status === 200) {
-                toast.success("사진이 업로드 되었습니다.");
-                setOpen(!open);
-            }
-        }
-            )
-        .catch( e => {
-            toast.error("업로드 할 수 없습니다. 다시 시도해주세요");
-    });
+        } 
+
+        //
+        setCautionText("이미지 파일(png, jpg)만 업로드 할 수 있습니다");
+        return;
+    }
+
+    const closeClick = () => {
+        setOpen(!open);
+        setCautionText("");
     }
 
 
@@ -133,7 +144,7 @@ const PhotoList = () => {
         <div className="add-meeting">
             <h4 className="color-darkgray">인증샷 올리기</h4>
             <AddCircleIcon sx={{ width: '2vw', height: '4vh', cursor: 'pointer', color: green[500]}}
-                onClick = {() => setOpen(!open)}
+                onClick = {closeClick}
             />
         </div>
         <div className="info-unit-meeting h50vh dis-grid over">
