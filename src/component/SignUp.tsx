@@ -54,7 +54,7 @@ const SignUp = () => {
     const passwordReg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
     const emailReg = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-    const signupClick = () => {
+    const signupClick = async () => {
         if(!userId || !password || !pwdCheck || !username || !address) {
             toast.error("이메일과 전화번호를 제외 모두 필수 입력값입니다.");
             return;
@@ -75,8 +75,19 @@ const SignUp = () => {
 
         // api 요청 후에 이미 있는 아이디일 경우 return 해주기
 
-        toast.success("회원가입 되었습니다. 로그인을 완료해주세요.");
-        navigate("/loginpage");
+        await axios.post("/signup", {
+            userId, username, password, email, phone, address
+        }).then(
+            payload =>{ 
+                
+                if(payload.status === 200) {
+                    toast.success("회원가입 되었습니다. 로그인을 완료해주세요.");
+                    navigate("/login-page")
+                } else {
+                    toast.error("회원가입에 실패했습니다. 다시 시도해주세요.");
+                }
+            } 
+        ).catch(e => toast.error(e));
     }
 
 return <div className="main_contents">
