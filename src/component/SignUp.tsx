@@ -111,7 +111,7 @@ return <div className="main_contents">
            <CustomInput 
            fullWidth={true} 
            type="email" 
-           placeholder="이메일"
+           placeholder="이름"
            value={username}
            onChange={(e: any) => setUsername(e.target.value)}
            />
@@ -119,7 +119,7 @@ return <div className="main_contents">
             <CustomInput 
             fullWidth={true} 
             type="text" 
-            placeholder="이름"
+            placeholder="이메일"
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}
             />
