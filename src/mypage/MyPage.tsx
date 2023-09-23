@@ -201,7 +201,7 @@ const MyPage = () => {
                 </div>
             </div>
             <div className="count-info basic_sort main-text">
-                이름님은 지금까지 {ploggingcount}번 줍깅을 했어요<br/>
+                {nickname ? nickname : userId}님은 지금까지 {ploggingcount}번 줍깅을 했어요<br/>
                 앞으로도 꾸준한 플로깅을 응원할게요<br/>
             </div>
         </div>
