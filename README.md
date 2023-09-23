@@ -17,6 +17,7 @@ https://spiky-shoulder-7b9.notion.site/ToyProject-plogging-79a4abfa703344dd95726
 
 ![](https://velog.velcdn.com/images/hanj1yeon/post/8e6b5b60-1f62-43dd-83e4-8ede91cbc82f/image.gif)
 
+
 ### 💻 Used
 <img src="https://img.shields.io/badge/REACT-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
 <img src="https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
