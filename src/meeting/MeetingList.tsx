@@ -67,7 +67,7 @@ const MeetingList = () => {
             <AddCircleIcon onClick={goCreate}
             sx={{width: '3vw', height: '6vh', cursor: 'pointer', color: green[500]}}/>
         </div>
-        <div className="meeting-list-area">
+        <div className="info-unit-meeting h50vh">
             <div className="meeting-list dis-grid over template3">
                 {data?.map( (unit:any , index: any) => (
                       <div className="unit-meeting" key ={index} id={unit.id} onClick={() => unitInfo(unit.id)}>
