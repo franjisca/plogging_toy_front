@@ -37,7 +37,7 @@ const Customdelete = styled(DeleteIcon)({
 
 const LikeCount  = styled(Typography)({
     position: 'absolute',
-    top: '18.9vh',
+    top: '18vh',
     left: '7vw',
     width: '4vw',
     height: '4vh',
