@@ -84,7 +84,7 @@ const MyChatList = (passed: any) => {
     <div className="my-chat-list dis-grid over template3">
         {chatList?.map(
             (unit:any, idx:any) => <>
-              <div className="unit-meeting" key={idx + Math.random()}>
+              <div className="unit-meeting" key={Math.random()}>
       <p className="unit-title font20 align-center">
             {unit.title}
       </p>

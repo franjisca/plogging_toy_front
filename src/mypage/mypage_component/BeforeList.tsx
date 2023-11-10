@@ -35,7 +35,7 @@ const BeforeList = (passed:any) => {
             before?.map(
                 (unit:any, idx: any) =>
                 <>
-                <div className="unit-meeting" key={idx+idx}>
+                <div className="unit-meeting" key={Math.random()}>
                     <p className="unit-title font20 align-center">
                         {unit.title}
                     </p>
