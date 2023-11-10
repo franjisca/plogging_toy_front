@@ -7,7 +7,7 @@ const MyMap = (passed:any) => {
     <>
     <div className="my-map overflow-xy basic_sort">
 
-      서비스 준비중입니다.
+      나의 플로깅 마커 서비스는 준비중입니다!
 {/*<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
