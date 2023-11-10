@@ -71,7 +71,7 @@ const MeetingList = () => {
             <div className="meeting-list dis-grid over template3">
                 {data?.map( (unit:any , index: any) => (
                       <div className="unit-meeting" key ={index} id={unit.id} onClick={() => unitInfo(unit.id)}>
-                      <p className="unit-title font20 align-center">
+                      <p className="unit-title font18 align-center">
                           {unit.title}
                       </p>
                       <div className="people-list basic_sort">

@@ -85,7 +85,7 @@ const MyChatList = (passed: any) => {
         {chatList?.map(
             (unit:any, idx:any) => <>
               <div className="unit-meeting" key={Math.random()}>
-      <p className="unit-title font20 align-center">
+      <p className="unit-title font18 align-center">
             {unit.title}
       </p>
       <div className="people-list basic_sort">
