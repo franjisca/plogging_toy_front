@@ -1,8 +1,11 @@
-import { Button, TextField, styled } from "@mui/material";
+import { Button, InputAdornment, TextField, styled } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import CloseIcon from '@mui/icons-material/Close';
+import SearchIcon from '@mui/icons-material/Search';
+import DaumPostcode from 'react-daum-postcode';
 
 const BootstrapButton = styled(Button)({
     backgroundColor: '#13aa52',
@@ -39,6 +42,12 @@ const CustomInput = styled(TextField)({
     marginBottom: '3px',
   });
 
+const postCss = {
+
+    width: '38vw',
+    height: '69vh',
+}
+
 const CreateMeeting = () => {
     
     const accessToken = localStorage.getItem("accessToken");
@@ -49,6 +58,7 @@ const CreateMeeting = () => {
     const [location, setLocation] = useState<any>('');
     const [maxCount, setMaxCount] = useState<any>('');
     const [contents, setContents] = useState<any>('');
+    const [modalOpen, setModalOpen] = useState<any>(false);
     const navigate = useNavigate();
 
     const resetText = () => {
@@ -95,6 +105,10 @@ const CreateMeeting = () => {
 
     }
 
+    const closeClick = () => {
+        setModalOpen(!modalOpen); 
+    }
+
     return <div className="main_contents">
          <div className="create-meeting-area basic_sort">
         <form>
@@ -118,10 +132,17 @@ const CreateMeeting = () => {
             onChange={e => setMaxCount(e.target.value)}
             />
             위치
-            <CustomInput 
+            <CustomInput
             fullWidth={true} type="text" placeholder="간략한 위치를 작성해주세요"
             value={location}
             onChange={e => setLocation(e.target.value)}
+            InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <SearchIcon onClick={() => setModalOpen(!modalOpen)} sx={{cursor:"pointer"}}/>
+                  </InputAdornment>
+                ),
+              }} 
             />
             상세 설명
             <CustomInput 
@@ -133,6 +154,31 @@ const CreateMeeting = () => {
             <BootstrapButton onClick={resetText}>다시 쓰기</BootstrapButton>
         </form>
     </div>
+
+    {/* modal창 영역 */}
+
+    {
+            modalOpen && 
+            <>
+            <div className="modal-back">
+                <div className="modal">
+                    <div className="close-area">
+                        <CloseIcon sx={{cursor: 'pointer'}}  onClick={closeClick} />
+                    </div>
+                    <div className="basic_sort">
+                        <DaumPostcode
+                        style={postCss}
+                        onClose={() =>setModalOpen(!modalOpen)}
+                        onComplete={e => setLocation(e.address)}
+                        ></DaumPostcode>
+                    </div>
+
+                </div>
+            </div>
+            </>
+        }
+
+
     </div>
 }
 
