@@ -698,6 +698,11 @@ a {
   color: white ;
 }
 
+/* meeting create form css */
+.create-form {
+  height: inherit;
+}
+
 /* common */
 
 .caution-text{
@@ -710,6 +715,10 @@ a {
   justify-content: center;
   align-items: center;
   display: flow-root;
+}
+
+.over-hidden {
+  overflow-y: hidden;
 }
 
 .basic_sort {

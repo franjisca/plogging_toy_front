@@ -39,11 +39,10 @@ const CustomInput = styled(TextField)({
     width: '30vw',
     height: '7vh',
     fontFamily: 'Orbit !important',
-    marginBottom: '3px',
+    marginBottom: '2px',
   });
 
 const postCss = {
-
     width: '38vw',
     height: '69vh',
 }
@@ -111,7 +110,7 @@ const CreateMeeting = () => {
 
     return <div className="main_contents">
          <div className="create-meeting-area basic_sort">
-        <form>
+        <form className="create-form">
             제목
             <CustomInput 
             fullWidth={true} type="email" placeholder="제목을 입력하세요"
