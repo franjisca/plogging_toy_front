@@ -1,8 +1,11 @@
-import { Button, TextField, styled } from "@mui/material";
+import { Button, InputAdornment, TextField, styled } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import CloseIcon from '@mui/icons-material/Close';
+import SearchIcon from '@mui/icons-material/Search';
+import DaumPostcode from 'react-daum-postcode';
 
 const BootstrapButton = styled(Button)({
     backgroundColor: '#13aa52',
@@ -47,10 +50,14 @@ const SignUp = () => {
     const [phone, setPhone] = useState<any>('');
     const [address, setAddress] = useState<any>('');
     const [pwdHelp, setPwdHelp] = useState<any>('');
-
+    const [modalOpen, setModalOpen] = useState<any>(false);
     
     const navigate  = useNavigate();
     
+    const postCss = {
+        width: '38vw',
+        height: '69vh',
+    }
 
     const passwordReg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
     const emailReg = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -150,11 +157,39 @@ return <div className="main_contents">
             placeholder="주소를 입력하세요"
             value={address}
             onChange={(e: any) => setAddress(e.target.value)}
+            InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <SearchIcon onClick={() => setModalOpen(!modalOpen)} sx={{cursor:"pointer"}}/>
+                  </InputAdornment>
+                ),
+              }} 
             />
             <BootstrapButton onClick={signupClick}>회원가입</BootstrapButton>
         </form>
     </div>
+  {/* modal창 영역 */}
 
+  {
+            modalOpen && 
+            <>
+            <div className="modal-back">
+                <div className="modal">
+                    <div className="close-area">
+                        <CloseIcon sx={{cursor: 'pointer'}}  onClick={() => setModalOpen(!modalOpen)} />
+                    </div>
+                    <div className="basic_sort">
+                        <DaumPostcode
+                        style={postCss}
+                        onClose={() =>setModalOpen(!modalOpen)}
+                        onComplete={e => setAddress(e.address)}
+                        ></DaumPostcode>
+                    </div>
+
+                </div>
+            </div>
+            </>
+        }
     </div>
 }
 
