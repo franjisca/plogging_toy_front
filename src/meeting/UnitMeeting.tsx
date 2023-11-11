@@ -14,6 +14,7 @@ const UnitMeeting = () => {
     const navigate = useNavigate();
     const pathvariable = location.state.pathvariable;
     const [click, setClick] = useState<any>(false);
+    const [peopleCount, setPeopleCount] = useState<any>(1);
 
     useEffect(() => {
         info();
@@ -24,7 +25,11 @@ const UnitMeeting = () => {
         axios.get("/meeting/info/"+pathvariable)
         .then(payload => 
             {
-                setData(payload.data); 
+                setData(payload.data);
+                if(payload.data.two !== null) setPeopleCount(2);
+                if(payload.data.three !== null) setPeopleCount(3);
+                if(payload.data.four !== null) setPeopleCount(4);
+
             }
             )
         .catch(e => toast.error("모임 정보가 존재하지 않습니다. 다시 시도해주세요"));
@@ -50,6 +55,7 @@ const UnitMeeting = () => {
             if(payload.status === 200) {
                 setClick(!click);
                 toast.success("모임에 참여 되었습니다.");
+                info();
             }
 
         }
@@ -93,7 +99,7 @@ const UnitMeeting = () => {
                     </div>
                      {/* 반복문 자리 */}
                 </div>
-                <p className="wdt-inherit align-center">{data.maxCount}명 중에 1명이 참여했어요</p>
+                <p className="wdt-inherit align-center">{data.maxCount}명 중에 {peopleCount}명이 참여했어요</p>
                 <p className="unit-title font16 align-center">
                     상세설명: {data.contents}
                 </p>

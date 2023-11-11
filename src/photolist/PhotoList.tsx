@@ -152,7 +152,7 @@ const PhotoList = () => {
                 {data?.map(
                     (unit: any, idx: any) => (
                 <div className="photo basic_sort" key={idx}>
-                <img className="photo-size" src={"/upload_image/" + unit.storedFileName} alt="image"/>
+                <img className="photo-size" src={'/upload_image/'+unit.storedFileName}alt="image"/>
                 <CustomIcon onClick={() => likePhoto(unit.id)}/>
                 </div>
                     )
