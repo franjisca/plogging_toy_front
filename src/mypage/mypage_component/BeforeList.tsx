@@ -36,7 +36,7 @@ const BeforeList = (passed:any) => {
                 (unit:any, idx: any) =>
                 <>
                 <div className="unit-meeting" key={Math.random()}>
-                    <p className="unit-title font20 align-center">
+                    <p className="unit-title font18 align-center">
                         {unit.title}
                     </p>
                     <p className="wdt-inherit align-center">기간: {unit.period}</p>

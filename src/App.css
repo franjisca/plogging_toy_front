@@ -369,7 +369,7 @@ a {
 .footer-content {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1230px;
+  max-width: 72vw !important;
   padding: 40px 15px 450px;
   position: relative;
 }
@@ -698,6 +698,11 @@ a {
   color: white ;
 }
 
+/* meeting create form css */
+.create-form {
+  height: inherit;
+}
+
 /* common */
 
 .caution-text{
@@ -710,6 +715,10 @@ a {
   justify-content: center;
   align-items: center;
   display: flow-root;
+}
+
+.over-hidden {
+  overflow-y: hidden;
 }
 
 .basic_sort {
@@ -764,6 +773,10 @@ a {
 
 .font16{
   font-size: 16px;
+}
+
+.font18{
+  font-size: 18px;
 }
 
 
