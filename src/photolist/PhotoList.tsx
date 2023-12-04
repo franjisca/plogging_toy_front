@@ -143,8 +143,8 @@ const PhotoList = () => {
             <h3 className="color_grey">다른 사용자들의 줍깅을 응원해주세요, 무한으로 응원할 수도 있어요</h3>
         </div>
         <div className="add-meeting">
-            <h4 className="color-darkgray">인증샷 올리기</h4>
-            <AddCircleIcon sx={{ width: '2vw', height: '4vh', cursor: 'pointer', color: green[500]}}
+            <h3 className="color-darkgray">인증샷 올리기</h3>
+            <AddCircleIcon sx={{ width: '3vw', height: '6vh', cursor: 'pointer', color: green[500]}}
                 onClick = {closeClick}
             />
         </div>
