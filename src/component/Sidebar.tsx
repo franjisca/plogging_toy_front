@@ -17,20 +17,21 @@ const SideBar = () =>{
     }, [userId]);
 
     const logout = async () => {
-       /* await axios.get('/logout', {headers : {Authorization: `Bearer ${accessToken}`}})
+        await axios.get("/log-out", {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
                 if(payload.status === 200) {
+                    localStorage.removeItem("userId");
+                    localStorage.removeItem("accessToken");
+                    setId('');
+                    toast.success("로그아웃 되었습니다.");
+                    navigate("/");
+                } else {
+                    toast.error("로그아웃 할 수 없습니다. 다시 시도해주세요.");
+                    return;
                 }
-                toast.error("로그아웃 할 수 없습니다. 다시 시도해주세요.");
-                return;
             }
-            ).catch(); */
-            localStorage.removeItem("userId");
-            localStorage.removeItem("accessToken");
-            setId('');
-            toast.success("로그아웃 되었습니다.");
-            navigate("/");
+            ).catch();
         }
 
     const myPageClick = () => {
