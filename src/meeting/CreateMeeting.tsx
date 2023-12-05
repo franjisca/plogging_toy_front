@@ -126,7 +126,7 @@ const CreateMeeting = () => {
             onChange={e => setPeriod2(e.target.value)}
             />
             인원<CustomInput 
-            fullWidth={true} type="text" placeholder="숫자로 4까지 입력할 수 있어요"
+            fullWidth={true} type="number" InputProps={{inputProps: {min:1, max:4}}} placeholder="숫자로 4까지 입력할 수 있어요"
             value={maxCount}
             onChange={e => setMaxCount(e.target.value)}
             />
