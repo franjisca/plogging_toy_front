@@ -6,10 +6,12 @@ import MyChatList from "./mypage_component/MyChatList";
 import MyPhotoList from "./mypage_component/MyPhotoList";
 import MyMap from "./mypage_component/Map";
 import BeforeList from "./mypage_component/BeforeList";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, InputAdornment } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import axios from "axios";
 import { toast } from "react-toastify";
+import SearchIcon from '@mui/icons-material/Search';
+import DaumPostcode from 'react-daum-postcode';
 
 const PagingButton = styled(CircleIcon)({
     cursor: 'pointer',
@@ -58,6 +60,11 @@ const CustomInput = styled(TextField)({
     marginBottom: '3px',
   });
 
+  const postCss = {
+    width: '38vw',
+    height: '69vh',
+}
+
 const MyPage = () => {
 
     const accessToken = localStorage.getItem("accessToken");
@@ -66,6 +73,7 @@ const MyPage = () => {
     const [ploggingcount, setPloggingCount] = useState<any>('');
     
     const [modal, setModal] = useState<any>(false);
+    const [addrModalOpen, setAddrModalOpen] = useState<any>(false);
     const [isChatList, setIsChatList] = useState<any>(true);
     const [isPhotoList, setIsPhotoList] = useState<any>(false);
     const [isMap, setIsMap] = useState<any>(false);
@@ -186,6 +194,10 @@ const MyPage = () => {
         setPwdHelp('');
         setEmailHelp('');
     }
+
+    const addrCloseClick = () => {
+        setAddrModalOpen(!addrModalOpen);
+    }
     
     return <div className="main_contents">
         <div className="myprofile-area basic_sort ">
@@ -251,13 +263,45 @@ const MyPage = () => {
              value={phone} onChange={e => setPhone(e.target.value)}/>
 
             주소<CustomInput fullWidth={true} type="text" placeholder="주소를 입력하세요"
-             value={address} onChange={e => setAddresss(e.target.value)}/>
+             value={address} onChange={e => setAddresss(e.target.value)}
+             InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <SearchIcon onClick={() => setAddrModalOpen(!addrModalOpen)} sx={{cursor:"pointer"}}/>
+                  </InputAdornment>
+                ),
+              }} 
+             />
+            
             <BootstrapButton onClick={infochange}>
                 정보수정
             </BootstrapButton>
         </form>
             </div>
         </div>
+            </>
+        }
+
+            {/* 주소 모달창 */}
+
+    {
+            addrModalOpen && 
+            <>
+            <div className="modal-back">
+                <div className="modal">
+                    <div className="close-area">
+                        <CloseIcon sx={{cursor: 'pointer'}}  onClick={addrCloseClick} />
+                    </div>
+                    <div className="basic_sort">
+                        <DaumPostcode
+                        style={postCss}
+                        onClose={() =>setAddrModalOpen(!addrModalOpen)}
+                        onComplete={e => setAddresss(e.address)}
+                        ></DaumPostcode>
+                    </div>
+
+                </div>
+            </div>
             </>
         }
 
