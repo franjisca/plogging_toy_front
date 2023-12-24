@@ -8,6 +8,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { TextField } from "@mui/material";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CustomIcon = styled(FavoriteIcon)({
     position: 'absolute',
@@ -39,6 +40,7 @@ const PhotoList = () => {
     const [uploadFile, setUploadFile] = useState<any>('');
     const [userId, setUserId] = useState<any>('');
     const [cautionText, setCautionText] = useState<any>('');
+    const navigate = useNavigate();
 
     useEffect(() =>{
         setUserId(localStorage.getItem("userId"));
@@ -130,6 +132,11 @@ const PhotoList = () => {
     }
 
     const closeClick = () => {
+
+        if(!accessToken) {
+            toast.error("로그인 정보가 없습니다. 로그인을 완료해주세요.");
+            navigate("/login-page");
+        }
         setOpen(!open);
         setCautionText("");
     }
