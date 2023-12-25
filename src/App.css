@@ -41,6 +41,7 @@ form{
 .move:hover {
   transform: scale(1.03);
   transition-duration: 0.1s;
+  cursor: pointer;
 }
 
 .main_contents {
@@ -353,6 +354,7 @@ a {
 .footer {
   background-color: #13aa52;
   color: #fff;
+  justify-content: center;
 }
 .footer-wave-svg {
   background-color: transparent;
@@ -369,7 +371,7 @@ a {
 .footer-content {
   margin-left: auto;
   margin-right: auto;
-  max-width: 64vw !important;
+  max-width: 63vw !important;
   padding: 40px 15px 450px;
   position: relative;
 }

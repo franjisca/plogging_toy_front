@@ -14,6 +14,7 @@ import Chatting from './mypage/mypage_component/Chatting';
 import PhotoList from './photolist/PhotoList';
 import NotFound from './component/NotFound';
 import Preparing from './component/Preparing';
+import GiftCount from './gift-page/GiftCount';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route key={Math.random()} path="/mypage" element={<MyPage/>} />
         <Route key={Math.random()} path="chatting" element= {<Chatting/>}/>
         <Route key={Math.random()} path="/*" element={<NotFound/>} />
+        <Route key={Math.random()} path= "/gift-page" element={<GiftCount/>}/>
         <Route key={Math.random()} path= "/preparing" element={<Preparing/>}/>
       </Routes>
       <Footer/>
