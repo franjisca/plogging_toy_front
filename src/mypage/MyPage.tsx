@@ -170,14 +170,18 @@ const MyPage = () => {
             return;
         }
 
-        await axios.patch('/my-page/info-change/' + userId, {
+        const dto = {
             nickname,
-            pwdChange,
+            password: pwdChange,
             email,
             phone,
-            address,
+            address
+            }
 
-        }, {headers : {Authorization: `Bearer ${accessToken}`}})
+        await axios.patch
+        ('/my-page/info-change/' + userId, 
+         dto, 
+        {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(
             payload => {
                 setModal(!modal);

@@ -220,6 +220,35 @@ form{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 }
 
+.plastic_bag_img {
+  width: 20vw;
+  height: 40vh;
+  cursor: pointer;
+}
+
+.plastic_bag_img:hover:aftrer + .block_text {
+  display: block !important;
+}
+
+.block_text {
+  display: none !important;
+  width: inherit;
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: 28%;
+}
+
+.position-absolute {
+  position: absolute;
+  bottom: 46.5%;
+  font-size: 20px;
+  color: #f9f9f9;
+  font-weight: 900;
+}
+
+
+
+
 /* mypage */
 
 .lv-size {
@@ -685,6 +714,16 @@ a {
   height: 4vh;
 }
 
+.round-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: inherit;
+  height: 10vh;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 .complete {
   width: inherit;
   height: 8vh;
@@ -699,6 +738,7 @@ a {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   color: white ;
 }
+
 
 /* meeting create form css */
 .create-form {
@@ -827,6 +867,10 @@ a {
 
 .h53vh {
   height: 53vh;
+}
+
+.h60vh{
+  height: 60vh;
 }
 
 .h65vh {

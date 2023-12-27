@@ -55,7 +55,7 @@ const MyPhotoList = (passed: any) => {
 
     useEffect( () => {
         getMyPhotoList();
-    }, [photos]);
+    }, []);
  
     const getMyPhotoList= async() => {
         
