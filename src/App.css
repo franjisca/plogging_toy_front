@@ -231,7 +231,6 @@ form{
 }
 
 .block_text {
-  display: none !important;
   width: inherit;
   font-size: 1.2rem;
   position: absolute;
