@@ -29,7 +29,9 @@ const GiftCount = () => {
                 <div className="round-box">
                     <span>지금 내가 가지고 있는 종량제 봉투
                     </span>
-                    <div className="basic_sort"><span>{myPlasticCount}개</span> <button className="button-37">교환하기</button></div>
+                    <div className="basic_sort"><span>{myPlasticCount}개</span> 
+                    {myPlasticCount > 10 && <button className="button-37">교환하기</button>}
+                    </div>
                  </div>
             </div>       
         </div>
