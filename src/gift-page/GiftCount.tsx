@@ -19,6 +19,7 @@ const GiftCount = () => {
         )
         .catch(e => toast.error("종량제 봉투 개수를 가져올 수 없습니다. 다시 시도해주세요."));
     }, []);
+
     const onClickPlasticBag = () => {
 
         if(plasticCount <= 0) {
