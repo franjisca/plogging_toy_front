@@ -6,18 +6,19 @@ import { toast } from "react-toastify";
 
 const GiftCount = () => {
 
-    const [plasticCount, setPlasticCount] = useState<any>(100);
-    const [myPlasticCount, setMyPlasticCount] = useState<any>(0);
+    const [plasticCount, setPlasticCount] = useState<any>('');
+    const [myPlasticCount, setMyPlasticCount] = useState<any>('');
 
 
     useEffect(() => {
         axios.get("/total-plasticbag-count")
         .then(
             payload => {
-                setPlasticCount(payload);
+                setPlasticCount(payload.data);
             }
         )
         .catch(e => toast.error("종량제 봉투 개수를 가져올 수 없습니다. 다시 시도해주세요."));
+
     }, []);
 
     const onClickPlasticBag = () => {
