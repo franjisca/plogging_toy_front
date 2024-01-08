@@ -6,11 +6,19 @@ import { toast } from "react-toastify";
 
 const GiftCount = () => {
 
+    const accessToken = localStorage.getItem("accessToken");
+    const userId = localStorage.getItem("userId");
     const [plasticCount, setPlasticCount] = useState<any>('');
     const [myPlasticCount, setMyPlasticCount] = useState<any>('');
 
 
     useEffect(() => {
+        totalPlasticBagCount();
+        getMyPlasticBagCount();
+    }, []);
+
+    
+    const totalPlasticBagCount = async () => {
         axios.get("/total-plasticbag-count")
         .then(
             payload => {
@@ -18,15 +26,32 @@ const GiftCount = () => {
             }
         )
         .catch(e => toast.error("종량제 봉투 개수를 가져올 수 없습니다. 다시 시도해주세요."));
+    }
 
-    }, []);
 
-    const onClickPlasticBag = () => {
+    const getMyPlasticBagCount = async () => {
+        axios.get("/my-bag-count?userId="+userId, {headers : {Authorization: `Bearer ${accessToken}`}})
+        .then(payload => {
+            setMyPlasticCount(payload.data);
+        })
+        .catch(e => toast.error("현재 가지고 있는 종량제 봉투 개수를 가지고 올 수 없습니다. 다시 시도해주세요."));
+    }
+
+    const onClickPlasticBag = async () => {
 
         if(plasticCount <= 0) {
             toast.error("현재 남은 종량제봉투가 없습니다. 내일 다시 시도해주세요!");
             return;
         }
+
+        await axios.get("/get-plasticbag", {headers : {Authorization: `Bearer ${accessToken}`}})
+        .then(payload => {
+            if(payload.status === 200) {
+                toast.success("종량제 봉투를 얻었습니다.");
+                
+            }
+        })
+        .catch(e => toast.error("요청을 제대로 수행할 수 없습니다. 다시 시도해주세요."));
 
         setPlasticCount(plasticCount-1);
         setMyPlasticCount(myPlasticCount+1);
