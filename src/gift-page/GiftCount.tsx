@@ -57,6 +57,10 @@ const GiftCount = () => {
         setMyPlasticCount(myPlasticCount+1);
     }
 
+    const onClickAskPlasticBag = () => {
+        toast.warning("아직 실물로 교환할 수 없습니다. 조금만 기다려주세요");
+    }
+
     return <div className="main_contents">
             <div className="meeting-area">
                 <div className="basic_sort h60vh">
@@ -68,7 +72,7 @@ const GiftCount = () => {
                     <span>지금 내가 가지고 있는 종량제 봉투
                     </span>
                     <div className="basic_sort"><span className="pd-0-2">{myPlasticCount}개</span> 
-                    {myPlasticCount > 10 && <button className="button-37">교환하기</button>}
+                    {myPlasticCount > 10 && <button className="button-37" onClick={onClickAskPlasticBag}>교환하기</button>}
                     </div>
                  </div>
             </div>       
