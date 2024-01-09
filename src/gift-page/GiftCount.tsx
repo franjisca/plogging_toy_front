@@ -44,7 +44,7 @@ const GiftCount = () => {
             return;
         }
 
-        await axios.get("/get-plasticbag", {headers : {Authorization: `Bearer ${accessToken}`}})
+        await axios.get("/get-plasticbag?userId="+userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(payload => {
             if(payload.status === 200) {
                 toast.success("종량제 봉투를 얻었습니다.");
