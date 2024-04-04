@@ -1,24 +1,20 @@
 import * as React from "react";
-import { MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
+import { Map, MapMarker } from "react-kakao-maps-sdk";
+
 
 const MyMap = (passed:any) => {
     
     return passed.passed && 
     <>
     <div className="my-map overflow-xy basic_sort">
-
-      나의 플로깅 마커 서비스는 준비중입니다!
-{/*<MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-  <TileLayer
-    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={[122, 33]}>
-    <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
-  </Marker>
-</MapContainer>*/}
+    <Map
+      center={{ lat: 33.5563, lng: 126.79581 }}
+      style={{ width: "100%", height: "100%" }}
+    >
+      <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
+        <div style={{color:"#000"}}>Hello World!</div>
+      </MapMarker>
+    </Map>
     </div>
     </>
 }
