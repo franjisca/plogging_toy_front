@@ -27,9 +27,7 @@ const MyMap = (passed:any) => {
             }
           ).catch(e => toast.error("플로깅 마커 목록을 불러올 수 없습니다. 다시 시도해주세요."));
         }
-
         getData();
-
     }, []);
 
     return passed.passed && 
