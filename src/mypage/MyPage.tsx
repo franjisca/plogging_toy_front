@@ -173,7 +173,7 @@ const MyPage = () => {
         const dto = {
             nickname,
             password: pwdChange,
-            email,
+            email: emailChange,
             phone,
             address
             }
