@@ -30,13 +30,13 @@ const MeetingList = () => {
     } 
 
     const count = (unit: any) => {
-        if(unit.two) {
+        if(unit.two && !unit.three) {
             return 2;
         }
-        if(unit.two && unit.three) {
+        else if(unit.three) {
             return 3;
         }
-        if(unit.two && unit.three && unit.four) {
+        else if(unit.four) {
             return 4;
         }
 
