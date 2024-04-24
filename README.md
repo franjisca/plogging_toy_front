@@ -8,6 +8,9 @@ https://spiky-shoulder-7b9.notion.site/ToyProject-plogging-79a4abfa703344dd95726
 
 <br/><br/><br/>
 
+### 서비스 아키텍처
+![](https://velog.velcdn.com/images/hanj1yeon/post/1c354f48-edfd-4d5b-ae94-1cbf51be2e22/image.png)
+
 ### 🖼️ page
 ![](https://velog.velcdn.com/images/hanj1yeon/post/238aab24-7469-4862-83d1-8205d9f3cdeb/image.gif)
 
