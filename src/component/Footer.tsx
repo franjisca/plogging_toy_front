@@ -61,10 +61,10 @@ const Footer = () => {
             <h2 className="footer-menu-name"> Quick Links</h2>
             <ul id="menu-quick-links" className="footer-menu-list">
               <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="/preparing">Support Center</a>
+                <a target="_blank" rel="noopener noreferrer" href="/preparing">공지사항</a>
               </li>
               <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="/preparing">Service Status</a>
+                <a target="_blank" rel="noopener noreferrer" href="/preparing">1:1문의</a>
               </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-page">
                 <a href="/preparing">Security</a>
