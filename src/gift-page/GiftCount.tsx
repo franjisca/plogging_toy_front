@@ -32,7 +32,8 @@ const GiftCount = () => {
     const getMyPlasticBagCount = async () => {
         axios.get("/my-bag-count?userId="+userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(payload => {
-            setMyPlasticCount(payload.data);
+            if(!payload.data) setMyPlasticCount(0);
+            else setMyPlasticCount(payload.data);
         })
         .catch(e => toast.error("현재 가지고 있는 종량제 봉투 개수를 가지고 올 수 없습니다. 다시 시도해주세요."));
     }
