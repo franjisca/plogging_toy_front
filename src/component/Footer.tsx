@@ -67,15 +67,7 @@ const Footer = () => {
                 <a target="_blank" rel="noopener noreferrer" href="/preparing">1:1문의</a>
               </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/preparing">Security</a>
-              </li>
-              <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/preparing">Blog</a>
-              </li>
-              <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                <a href="/preparing">Customers</a></li>
-              <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/preparing">Reviews</a>
+                <a href="/preparing">후원하기</a>
               </li>
             </ul>
           </div>
