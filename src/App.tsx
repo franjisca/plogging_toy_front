@@ -15,6 +15,7 @@ import PhotoList from './photolist/PhotoList';
 import NotFound from './component/NotFound';
 import Preparing from './component/Preparing';
 import GiftCount from './gift-page/GiftCount';
+import Notice from './footer_content/Notice';
 
 
 function App() {
@@ -32,9 +33,10 @@ function App() {
         <Route key={Math.random()} path="/photolist" element={<PhotoList/>}/>
         <Route key={Math.random()} path="/mypage" element={<MyPage/>} />
         <Route key={Math.random()} path="chatting" element= {<Chatting/>}/>
-        <Route key={Math.random()} path="/*" element={<NotFound/>} />
         <Route key={Math.random()} path= "/gift-page" element={<GiftCount/>}/>
         <Route key={Math.random()} path= "/preparing" element={<Preparing/>}/>
+        <Route key={Math.random()} path= "/notice" element={<Notice/>}/>
+        <Route key={Math.random()} path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>
