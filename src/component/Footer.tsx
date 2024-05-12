@@ -61,7 +61,7 @@ const Footer = () => {
             <h2 className="footer-menu-name"> Quick Links</h2>
             <ul id="menu-quick-links" className="footer-menu-list">
               <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="/notice">공지사항</a>
+                <a href="/notice">공지사항</a>
               </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-page">
                 <a href="/donate">후원하기</a>
