@@ -16,6 +16,7 @@ import NotFound from './component/NotFound';
 import Preparing from './component/Preparing';
 import GiftCount from './gift-page/GiftCount';
 import Notice from './footer_content/Notice';
+import Donate from './footer_content/\bDonate';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route key={Math.random()} path= "/gift-page" element={<GiftCount/>}/>
         <Route key={Math.random()} path= "/preparing" element={<Preparing/>}/>
         <Route key={Math.random()} path= "/notice" element={<Notice/>}/>
+        <Route key={Math.random()} path= "/donate" element={<Donate/>}/>
         <Route key={Math.random()} path="/*" element={<NotFound/>} />
       </Routes>
       <Footer/>
