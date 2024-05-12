@@ -8,8 +8,6 @@ import { toast } from "react-toastify";
 const MeetingList = () => {
 
     const [data, setData] = useState<any>([]);
-    const [click, setCilick] = useState<any>('');
-
 
     useEffect((
     ) => {

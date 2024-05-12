@@ -21,7 +21,7 @@ const Footer = () => {
                 <a href="https://spiky-shoulder-7b9.notion.site/ToyProject-plogging-79a4abfa703344dd95726f215f279ec0?pvs=4">Start</a>
               </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="https://spiky-shoulder-7b9.notion.site/42ae252ec583492f930b49abaa768d9f?pvs=4">Documentation</a>
+                <a href="https://spiky-shoulder-7b9.notion.site/49b533dd63364e779898983cb4d9133d?pvs=4">Documentation</a>
               </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-product">
                 <a href="/preparing">Installation</a>
@@ -63,11 +63,8 @@ const Footer = () => {
               <li className="menu-item menu-item-type-custom menu-item-object-custom">
                 <a target="_blank" rel="noopener noreferrer" href="/notice">공지사항</a>
               </li>
-              <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                <a target="_blank" rel="noopener noreferrer" href="/preparing">1:1문의</a>
-              </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/preparing">후원하기</a>
+                <a href="/donate">후원하기</a>
               </li>
             </ul>
           </div>
