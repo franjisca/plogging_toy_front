@@ -2,7 +2,7 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePag
 import React from "react";
 
 interface Column {
-    id: '작성자' | '제목' | '작성일';
+    id: 'creator' | 'title' | 'createDate';
     label: string;
     minWidth?: number;
     align?: 'right';
@@ -10,10 +10,10 @@ interface Column {
   }
   
   const columns: Column[] = [
-    { id: '작성자', label: '작성자'},
-    { id: '제목', label: '제목', minWidth: 200 },
+    { id: 'creator', label: '작성자'},
+    { id: 'title', label: '제목', minWidth: 200 },
     {
-      id: '작성일',
+      id: 'createDate',
       label: '작성일',
       align:'right',
       minWidth: 170,
@@ -21,21 +21,23 @@ interface Column {
   ];
   
   interface Data {
-    작성자 : string;
-    제목: string;
-    작성일: string;
+    creator : string;
+    title: string;
+    contents: string;
+    createDate: string;
   }
   
   function createData(
-    작성자: string,
-    제목: string,
-    작성일: string,
+    creator: string,
+    title: string,
+    contents: string,
+    createDate: string,
   ): Data {
-    return { 작성자, 제목, 작성일};
+    return { creator, title, contents, createDate};
   }
   
   const rows = [
-    createData('admin', '안녕하세요', '2024.05.12'),
+    createData('admin', '안녕하세요','데이터입니다....' ,'2024.05.12'),
   ];
 
 const Notice = () =>{      
@@ -84,7 +86,7 @@ const Notice = () =>{
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.제목}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.title}>
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
