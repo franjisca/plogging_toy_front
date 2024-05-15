@@ -15,8 +15,9 @@ import PhotoList from './photolist/PhotoList';
 import NotFound from './component/NotFound';
 import Preparing from './component/Preparing';
 import GiftCount from './gift-page/GiftCount';
-import Notice from './footer_content/Notice';
+import Notice from './footer_content/notice/Notice';
 import Donate from './footer_content/\bDonate';
+import UnitNotice from './footer_content/notice/UnitNotice';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route key={Math.random()} path= "/gift-page" element={<GiftCount/>}/>
         <Route key={Math.random()} path= "/preparing" element={<Preparing/>}/>
         <Route key={Math.random()} path= "/notice" element={<Notice/>}/>
+        <Route key={Math.random()} path= "/notice/board" element={<UnitNotice/>}/>
         <Route key={Math.random()} path= "/donate" element={<Donate/>}/>
         <Route key={Math.random()} path="/*" element={<NotFound/>} />
       </Routes>
