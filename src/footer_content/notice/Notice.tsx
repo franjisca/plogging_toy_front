@@ -1,5 +1,8 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 interface Column {
     id: 'creator' | 'title' | 'createDate';
@@ -19,32 +22,14 @@ interface Column {
       minWidth: 170,
     },
   ];
-  
-  interface Data {
-    creator : string;
-    title: string;
-    contents: string;
-    createDate: string;
-  }
-  
-  function createData(
-    creator: string,
-    title: string,
-    contents: string,
-    createDate: string,
-  ): Data {
-    return { creator, title, contents, createDate};
-  }
-  
-  const rows = [
-    createData('admin', '안녕하세요','데이터입니다....' ,'2024.05.12'),
-  ];
 
 const Notice = () =>{      
 
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState<any>(10);
+    const [noticeList, setNoticeList] =  useState<any>([]);
+    const navigate = useNavigate();
+
     const handleChangePage = (event: unknown, newPage: number) => {
       setPage(newPage);
     };
@@ -53,7 +38,28 @@ const Notice = () =>{
       setRowsPerPage(+event.target.value);
       setPage(0);
     };
-  
+
+
+    useEffect(() => {
+      getNoticeList()
+    }, []);
+
+    const getNoticeList = async () => {
+
+      await axios.get("/notice/list")
+      .then(
+        payload => {
+          setNoticeList(payload.data);
+          console.log('noticelist', noticeList);
+        }
+      )
+      .catch(e => toast.error("데이터를 가져올 수 없습니다. 다시 시도해주세요"));
+    }
+
+
+    const goToUnitPage = (data: any) => {
+      navigate("/notice/board", {state: {data}});
+    }
 
     return <div className="main_contents">
         <div className="meeting-area">
@@ -82,16 +88,16 @@ const Notice = () =>{
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {noticeList
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((unitNotice:any) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.title}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={unitNotice.title}>
                     {columns.map((column) => {
-                      const value = row[column.id];
+                      const value = unitNotice[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}
-                        onClick={() => alert("게시글을 클릭하였습니다.")}
+                        onClick={() =>goToUnitPage(unitNotice)}
                         >
                           {column.format && typeof value === 'number'
                             ? column.format(value)
@@ -108,7 +114,7 @@ const Notice = () =>{
       <TablePagination
         rowsPerPageOptions={[10, 15, 20, 25]}
         component="div"
-        count={rows.length}
+        count={noticeList.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

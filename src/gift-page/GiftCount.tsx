@@ -19,7 +19,7 @@ const GiftCount = () => {
 
     
     const totalPlasticBagCount = async () => {
-        axios.get("/total-plasticbag-count")
+        await axios.get("/total-plasticbag-count")
         .then(
             payload => {
                 setPlasticCount(payload.data);
@@ -30,7 +30,7 @@ const GiftCount = () => {
 
 
     const getMyPlasticBagCount = async () => {
-        axios.get("/my-bag-count?userId="+userId, {headers : {Authorization: `Bearer ${accessToken}`}})
+        await axios.get("/my-bag-count?userId="+userId, {headers : {Authorization: `Bearer ${accessToken}`}})
         .then(payload => {
             if(!payload.data) setMyPlasticCount(0);
             else setMyPlasticCount(payload.data);
