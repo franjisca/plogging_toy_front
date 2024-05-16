@@ -16,7 +16,7 @@ import NotFound from './component/NotFound';
 import Preparing from './component/Preparing';
 import GiftCount from './gift-page/GiftCount';
 import Notice from './footer_content/notice/Notice';
-import Donate from './footer_content/\bDonate';
+import Donate from './footer_content/donate/Donate';
 import UnitNotice from './footer_content/notice/UnitNotice';
 
 
