@@ -746,6 +746,7 @@ a {
 }
 
 .donate-effect {
+  cursor: pointer;
   display: inline-block;
   color: rgb(91, 196, 126);
   font-family: 'Righteous', serif;
