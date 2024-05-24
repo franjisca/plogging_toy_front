@@ -3,6 +3,10 @@ import React from "react";
 
 
 const Donate = () => {
+    
+    const accessToken = localStorage.getItem("accessToken");
+
+
     return <div className="main_contents">
             <h1 className="donate-effect" data-shadow='Donate' onClick={() => alert('후원하기를 클릭하였습니다.')}>Donate</h1>
             <span>후원해주신 금액은 플로깅 활동을 하는 모임을 지원하며 사이트 운영을 위해 사용됩니다.</span>
