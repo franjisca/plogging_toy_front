@@ -76,15 +76,21 @@ const MeetingList = () => {
                           <div className="people basic_sort full">
                               1
                           </div>
+                          {unit.maxCount > 1 && 
                           <div className={unit.two ? "people basic_sort full" : "people basic_sort"}>
                               2
                           </div>
+                          }
+                          {unit.maxCount > 2 && 
                           <div className={unit.three ? "people basic_sort full" : "people basic_sort"}>
                               3
                           </div>
-                          <div className={unit.four ? "people basic_sort full" : "people basic_sort"}>
+                          }
+                          {unit.maxCount >3 && 
+                          <div className={unit.four? "people basic_sort full" : "people basic_sort"}>
                               4
                           </div>
+                          }
                       </div>
                       <p className="wdt-inherit align-center">{unit.maxCount}명 중에 {count(unit)}명이 참여했어요</p>
                   </div>

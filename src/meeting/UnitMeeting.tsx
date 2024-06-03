@@ -84,20 +84,28 @@ const UnitMeeting = () => {
     </div>
             <div className="info-unit-meeting">
                 <div className="people-list h20vh basic_sort">
-                    {/* 반복문 자리 */}
+                    
                     <div className="people large-size basic_sort full">
                         1
                     </div>
+                    {data.maxCount > 1 && 
                     <div className={data.two ? "people large-size basic_sort full" : "people large-size basic_sort"}>
                         2
                     </div>
+                    
+                    }
+                    {data.maxCount > 2 && 
                     <div className={data.three ? "people large-size basic_sort full" : "people large-size basic_sort"}>
                         3 
                     </div>
-                    <div className={data.four ? "people large-size basic_sort full" : "people large-size basic_sort"}>
+                    
+                    }
+                    
+                    {data.maxCount > 3 && 
+                     <div className={data.four ? "people large-size basic_sort full" : "people large-size basic_sort"}>
                         4
-                    </div>
-                     {/* 반복문 자리 */}
+                     </div>
+                    }
                 </div>
                 <p className="wdt-inherit align-center">{data.maxCount}명 중에 {peopleCount}명이 참여했어요</p>
                 <p className="unit-title font16 align-center">
