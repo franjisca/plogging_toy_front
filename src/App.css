@@ -667,6 +667,13 @@ a {
   } */
 }
 
+@media (min-width: 1024px) {
+  .nickname {
+    font-size: 15px;
+  }
+  
+}
+
 
 /* modal */
 

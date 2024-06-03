@@ -210,7 +210,7 @@ const MyPage = () => {
                 <img className="lv-size" alt="my-level" src="/image/free-icon-seeds-3598154.png"/>
                 </div>
                 <div className="basic_sort">
-                <span>Lv.01 {nickname ? nickname : userId} </span>
+                <span className="nickname">Lv.01 {nickname ? nickname : userId} </span>
                 <CustomButton fontSize="small" sx={{cursor:'pointer'}}
                     onClick={() => setModal(!modal)}
                 />
